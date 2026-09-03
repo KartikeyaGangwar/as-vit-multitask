@@ -4,7 +4,7 @@
 [![CUDA](https://img.shields.io/badge/CUDA-12.x-76b900.svg?logo=nvidia&logoColor=white)](https://developer.nvidia.com/cuda-toolkit)
 [![Target](https://img.shields.io/badge/Target-IEEE%20TPAMI%20%2F%20CVPR-blue.svg)](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Paper](https://img.shields.io/badge/Paper-Camera--Ready%20PDF-brightgreen.svg)](manuscript/main.pdf)
+[![Paper](https://img.shields.io/badge/Paper-IEEE%20TPAMI%20(Under%20Review)-brightgreen.svg)](#-citation)
 
 > **Author:** **Kartikey Singh**  
 > **Affiliation:** Department of Mathematics, University of Delhi, Delhi 110007, India  
@@ -133,11 +133,11 @@ All figures are rendered at 300 DPI and embedded in the camera-ready manuscript:
 
 | Figure Asset | Visual Description |
 | :--- | :--- |
-| [`manuscript/fig1_as_vit_workflow_pou.png`](manuscript/fig1_as_vit_workflow_pou.png) | **AS-ViT Workflow & PoU Routing:** Transformer self-attention coupled to feature-space Voronoi partition gating and dynamic subspace cleavage. |
-| [`manuscript/fig2_convergence_curves.png`](manuscript/fig2_convergence_curves.png) | **Master Convergence Curves:** Multi-task total loss trajectories and sustained positive transfer evolution $\Delta M$. |
-| [`manuscript/fig3_gram_matrix_heatmaps.png`](manuscript/fig3_gram_matrix_heatmaps.png) | **Gram Alignment Conflict Spectrum:** Demonstrating shift from severe clashing ($\lambda_{\min} = -0.78$) to orthogonal parameter manifolds ($\lambda_{\min} = +0.08$). |
-| [`manuscript/fig4_latent_tsne_territories.png`](manuscript/fig4_latent_tsne_territories.png) | **Latent Feature Space Clustering (t-SNE):** 2D projection showing token specialization into Voronoi territories around learned centroids $\mathbf{c}_k$. |
-| [`manuscript/fig5_real_nyuv2_visual_predictions.png`](manuscript/fig5_real_nyuv2_visual_predictions.png) | **Real-World NYUv2 Prediction Showcase:** 8-column qualitative comparison on real indoor test rooms with discovered PoU subspace allocation maps. |
+| [`assets/fig1_as_vit_workflow_pou.png`](assets/fig1_as_vit_workflow_pou.png) | **AS-ViT Workflow & PoU Routing:** Transformer self-attention coupled to feature-space Voronoi partition gating and dynamic subspace cleavage. |
+| [`assets/fig2_convergence_curves.png`](assets/fig2_convergence_curves.png) | **Master Convergence Curves:** Multi-task total loss trajectories and sustained positive transfer evolution $\Delta M$. |
+| [`assets/fig3_gram_matrix_heatmaps.png`](assets/fig3_gram_matrix_heatmaps.png) | **Gram Alignment Conflict Spectrum:** Demonstrating shift from severe clashing ($\lambda_{\min} = -0.78$) to orthogonal parameter manifolds ($\lambda_{\min} = +0.08$). |
+| [`assets/fig4_latent_tsne_territories.png`](assets/fig4_latent_tsne_territories.png) | **Latent Feature Space Clustering (t-SNE):** 2D projection showing token specialization into Voronoi territories around learned centroids $\mathbf{c}_k$. |
+| [`assets/fig5_real_nyuv2_visual_predictions.png`](assets/fig5_real_nyuv2_visual_predictions.png) | **Real-World NYUv2 Prediction Showcase:** 8-column qualitative comparison on real indoor test rooms with discovered PoU subspace allocation maps. |
 
 ---
 
@@ -172,10 +172,8 @@ AS_ViT_MultiTask_Vision/
 │   └── baselines_nyuv2.yaml       # Standard baseline configuration
 ├── notebooks/
 │   └── AS_ViT_Master_Kaggle_Colab_TPAMI.ipynb # 1-Click Cloud GPU deployment notebook
-├── manuscript/
-│   ├── main.tex                   # Complete IEEE TPAMI camera-ready LaTeX source
-│   ├── main.pdf                   # Compiled double-column camera-ready paper (5 pages)
-│   └── fig1 - fig6 PNGs           # 300 DPI high-resolution publication figures
+├── assets/
+│   └── fig1 - fig5 PNGs           # 300 DPI high-resolution publication figures
 ├── eval_multitask.py              # O(1) memory-optimized multi-task streaming evaluator
 ├── train_as_vit.py                # Two-Stage Discover-and-Deploy training orchestrator
 ├── smoke_test.py                  # 6-stage end-to-end GPU verification test suite

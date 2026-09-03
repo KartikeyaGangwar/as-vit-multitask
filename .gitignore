@@ -59,3 +59,12 @@ desktop.ini
 *.hdf5
 data/nyuv2_raw/
 data/nyuv2_real/*.h5
+
+# Confidential Manuscript, Papers & Personal Notes
+manuscript/
+paper/
+papers/
+notes/
+*.notes
+*.draft
+
