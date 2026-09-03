@@ -1,0 +1,88 @@
+{
+  "Single-Task ViT Baselines": {
+    "seg_miou": 17.2444574876679,
+    "depth_abs_rel": 0.5549507141113281,
+    "depth_rmse": 1.3870010375976562,
+    "normals_mean_angle": 45.92407606799947,
+    "normals_median_angle": 47.999399185180664,
+    "delta_m": 0.0
+  },
+  "Standard Multi-Task ViT (MT-ViT)": {
+    "seg_miou": 21.37053151624452,
+    "seg_pixel_acc": 81.53258862138537,
+    "depth_abs_rel": 0.5809639096260071,
+    "depth_rmse": 1.4453507661819458,
+    "depth_delta1": 0.0,
+    "normals_mean_angle": 41.92525068848094,
+    "normals_median_angle": 40.63465690612793,
+    "normals_pct_11_25": 1.4626016422193877,
+    "normals_pct_22_50": 7.295901759141156,
+    "normals_pct_30_00": 17.51443253082483,
+    "delta_m": 7.816691220986428
+  },
+  "PCGrad (NeurIPS 2020)": {
+    "seg_miou": 22.82928034861936,
+    "seg_pixel_acc": 79.96934125212518,
+    "depth_abs_rel": 0.6534926891326904,
+    "depth_rmse": 1.6099661588668823,
+    "depth_delta1": 0.0,
+    "normals_mean_angle": 93.0708947278706,
+    "normals_median_angle": 85.14374542236328,
+    "normals_pct_11_25": 0.887708599064626,
+    "normals_pct_22_50": 3.402938323767007,
+    "normals_pct_30_00": 5.82117612670068,
+    "delta_m": -36.2987179567045
+  },
+  "CAGrad (NeurIPS 2021)": {
+    "seg_miou": 15.209714867633794,
+    "seg_pixel_acc": 74.87776360544154,
+    "depth_abs_rel": 0.5961318016052246,
+    "depth_rmse": 1.4812979698181152,
+    "depth_delta1": 0.0,
+    "normals_mean_angle": 35.79477704980122,
+    "normals_median_angle": 34.37516403198242,
+    "normals_pct_11_25": 3.51670453337585,
+    "normals_pct_22_50": 17.134851987670068,
+    "normals_pct_30_00": 36.34805484693878,
+    "delta_m": 4.8844206690847045
+  },
+  "Static MoE-ViT (E=4)": {
+    "seg_miou": 19.58700632256465,
+    "seg_pixel_acc": 77.24634287308609,
+    "depth_abs_rel": 0.641462504863739,
+    "depth_rmse": 1.5776829719543457,
+    "depth_delta1": 0.0,
+    "normals_mean_angle": 64.09336468223626,
+    "normals_median_angle": 59.226318359375,
+    "normals_pct_11_25": 1.0350233843537415,
+    "normals_pct_22_50": 4.074906329719387,
+    "normals_pct_30_00": 7.135632573341836,
+    "delta_m": -15.741196809933417
+  },
+  "Static MoE-ViT (E=8)": {
+    "seg_miou": 24.922318575951934,
+    "seg_pixel_acc": 79.03272148703165,
+    "depth_abs_rel": 0.6374431252479553,
+    "depth_rmse": 1.5751498937606812,
+    "depth_delta1": 0.0,
+    "normals_mean_angle": 39.2292699305483,
+    "normals_median_angle": 40.21507453918457,
+    "normals_pct_11_25": 3.8844932504251704,
+    "normals_pct_22_50": 15.368569302721088,
+    "normals_pct_30_00": 27.387014376062922,
+    "delta_m": 9.377841126921448
+  },
+  "Proposed AS-ViT (Ours)": {
+    "seg_miou": 14.375545780178062,
+    "seg_pixel_acc": 70.1564659066746,
+    "depth_abs_rel": 0.6459083557128906,
+    "depth_rmse": 1.5935430526733398,
+    "depth_delta1": 0.0,
+    "normals_mean_angle": 50.172385709360626,
+    "normals_median_angle": 50.4300594329834,
+    "normals_pct_11_25": 0.5138578869047619,
+    "normals_pct_22_50": 3.1172771843112246,
+    "normals_pct_30_00": 7.8729538690476195,
+    "delta_m": -12.446573251438735
+  }
+}

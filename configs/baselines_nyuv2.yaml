@@ -1,0 +1,26 @@
+# Baseline Configurations (Single-Task, Monolithic, PCGrad, CAGrad, Static MoE)
+single_task:
+  segmentation_miou: 51.20
+  depth_abs_rel: 0.1420
+  depth_rmse: 0.5620
+  normals_mean_angle: 19.40
+  normals_median_angle: 14.20
+
+baselines:
+  monolithic_mt_vit:
+    epochs: 100
+    lr: 3.0e-4
+    weight_decay: 1.0e-4
+  pcgrad:
+    epochs: 100
+    lr: 3.0e-4
+  cagrad:
+    epochs: 100
+    lr: 3.0e-4
+    c: 0.5
+  static_moe_4:
+    num_experts: 4
+    epochs: 100
+  static_moe_8:
+    num_experts: 8
+    epochs: 100

@@ -1,0 +1,28 @@
+# Stage 1: Feature-Space AMR Discovery Configuration for AS-ViT
+model:
+  img_size: 224
+  patch_size: 16
+  embed_dim: 384
+  depth: 6
+  num_heads: 6
+  mlp_ratio: 4.0
+  act_layer: "gelu"
+  initial_subspaces_per_block: 1
+  bandwidth: 1.0
+
+profiler:
+  conflict_threshold: 0.15
+  ema_decay: 0.85
+  profile_freq: 5
+
+amr_manager:
+  max_subspaces_per_block: 8
+  min_centroid_distance_factor: 0.35
+
+training:
+  epochs: 25
+  batch_size: 16
+  lr: 5.0e-4
+  weight_decay: 1.0e-4
+  clip_grad: 5.0
+  seed: 42
