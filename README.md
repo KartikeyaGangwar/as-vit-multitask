@@ -4,11 +4,13 @@
 [![CUDA](https://img.shields.io/badge/CUDA-12.x-76b900.svg?logo=nvidia&logoColor=white)](https://developer.nvidia.com/cuda-toolkit)
 [![Target](https://img.shields.io/badge/Target-IEEE%20TPAMI%20%2F%20CVPR-blue.svg)](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0009--1973--7532-a6ce39.svg?logo=orcid&logoColor=white)](https://orcid.org/0009-0009-1973-7532)
 [![Paper](https://img.shields.io/badge/Paper-IEEE%20TPAMI%20(Under%20Review)-brightgreen.svg)](#-citation)
 
 > **Author:** **Kartikey Singh**  
-> **Affiliation:** Department of Mathematics, University of Delhi, Delhi 110007, India  
+> **Affiliation:** Department of Mathematics, University of Delhi, Delhi, 110007, India  
 > **Contact:** `kartikeysingh525@protonmail.com`  
+> **ORCID:** [`0009-0009-1973-7532`](https://orcid.org/0009-0009-1973-7532)  
 > **Target Venue:** *IEEE Transactions on Pattern Analysis and Machine Intelligence (IEEE TPAMI)* / *IEEE/CVF CVPR*
 
 ---
