@@ -186,13 +186,14 @@ def generate_baseline_versus_panel():
             if r == 0:
                 axes[r, c].set_title(col_titles[c], fontsize=11, fontweight="bold", pad=8)
                 
+    os.makedirs("manuscript", exist_ok=True)
+    os.makedirs("assets", exist_ok=True)
     out_path = "manuscript/fig5_comparative_baseline_versus.png"
     plt.savefig(out_path, bbox_inches="tight", dpi=300)
     plt.close()
     print(f"[+] Qualitative Baseline 'VERSUS' Panel successfully generated: {out_path}")
     
     # Mirror to assets/
-    os.makedirs("assets", exist_ok=True)
     import shutil
     shutil.copyfile(out_path, "assets/fig5_comparative_baseline_versus.png")
     print(f"[+] Mirrored to assets/fig5_comparative_baseline_versus.png")

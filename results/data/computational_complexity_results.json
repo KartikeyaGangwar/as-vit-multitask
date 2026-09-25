@@ -4,69 +4,69 @@
     "total_params_m": 7.85,
     "active_params_m": 7.85,
     "gflops": 3.18,
-    "peak_vram_mb": 377.7,
+    "peak_vram_mb": 378.7,
     "peak_vram_gb": 0.37,
-    "latency_ms": 6.23,
-    "fps": 160.5
+    "latency_ms": 4.15,
+    "fps": 240.8
   },
   {
     "method": "Standard Multi-Task ViT (MT-ViT)",
     "total_params_m": 3.91,
     "active_params_m": 3.91,
     "gflops": 1.14,
-    "peak_vram_mb": 905.0,
+    "peak_vram_mb": 906.0,
     "peak_vram_gb": 0.88,
-    "latency_ms": 10.88,
-    "fps": 91.9
+    "latency_ms": 6.55,
+    "fps": 152.6
   },
   {
     "method": "PCGrad (NeurIPS 2020)",
     "total_params_m": 3.91,
     "active_params_m": 3.91,
     "gflops": 1.14,
-    "peak_vram_mb": 905.0,
+    "peak_vram_mb": 906.0,
     "peak_vram_gb": 0.88,
-    "latency_ms": 11.24,
-    "fps": 89.0
+    "latency_ms": 6.59,
+    "fps": 151.9
   },
   {
     "method": "CAGrad (NeurIPS 2021)",
     "total_params_m": 3.91,
     "active_params_m": 3.91,
     "gflops": 1.14,
-    "peak_vram_mb": 905.0,
+    "peak_vram_mb": 906.0,
     "peak_vram_gb": 0.88,
-    "latency_ms": 13.08,
-    "fps": 76.5
+    "latency_ms": 6.52,
+    "fps": 153.5
   },
   {
     "method": "Static MoE-ViT (E=4)",
     "total_params_m": 7.47,
     "active_params_m": 5.1,
     "gflops": 1.6,
-    "peak_vram_mb": 983.1,
+    "peak_vram_mb": 984.1,
     "peak_vram_gb": 0.96,
-    "latency_ms": 17.77,
-    "fps": 56.3
+    "latency_ms": 10.88,
+    "fps": 91.9
   },
   {
     "method": "Static MoE-ViT (E=8)",
     "total_params_m": 12.21,
     "active_params_m": 5.1,
     "gflops": 1.6,
-    "peak_vram_mb": 1083.9,
+    "peak_vram_mb": 1084.9,
     "peak_vram_gb": 1.06,
-    "latency_ms": 23.31,
-    "fps": 42.9
+    "latency_ms": 18.85,
+    "fps": 53.0
   },
   {
     "method": "Proposed AS-ViT (Ours)",
     "total_params_m": 5.1,
     "active_params_m": 5.1,
     "gflops": 1.6,
-    "peak_vram_mb": 939.7,
+    "peak_vram_mb": 940.7,
     "peak_vram_gb": 0.92,
-    "latency_ms": 13.97,
-    "fps": 71.6
+    "latency_ms": 8.49,
+    "fps": 117.8
   }
 ]

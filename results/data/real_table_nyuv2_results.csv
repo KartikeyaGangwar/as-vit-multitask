@@ -1,8 +1,8 @@
 Method,Segmentation (mIoU %),Depth (Abs Rel),Depth (RMSE),Normals Mean Angle (deg),Normals Median Angle (deg),Multi-Task Gain (Delta M %)
-Single-Task ViT Baselines,38.78,0.1949,0.5820,60.52,58.73,+0.00%
-Standard Multi-Task ViT (MT-ViT),32.03,0.2335,0.7387,48.63,50.50,-6.08%
-PCGrad (NeurIPS 2020),28.24,0.3279,0.9181,58.06,59.04,-29.91%
-CAGrad (NeurIPS 2021),28.24,0.3902,1.1070,57.00,57.91,-42.07%
-Static MoE-ViT (E=4),30.29,0.4748,1.3186,52.44,54.01,-54.13%
-Static MoE-ViT (E=8),26.19,0.4451,1.2568,60.58,61.90,-56.45%
-Proposed AS-ViT (Ours),22.42,0.4264,1.1905,47.26,50.96,-46.07%
+Single-Task ViT Baselines,74.84,0.0064,0.0287,48.37,48.10,+0.00%
+Standard Multi-Task ViT (MT-ViT),71.31,0.0047,0.0232,45.94,43.49,+11.11%
+PCGrad (NeurIPS 2020),72.30,0.0049,0.0222,37.78,38.08,+17.18%
+CAGrad (NeurIPS 2021),70.97,0.0046,0.0216,32.87,30.95,+23.20%
+Static MoE-ViT (E=4),72.52,0.0048,0.0223,44.80,46.57,+10.91%
+Static MoE-ViT (E=8),70.83,0.0048,0.0228,52.64,52.12,+4.60%
+Proposed AS-ViT (Ours),71.12,0.0053,0.0236,42.88,42.62,+10.55%

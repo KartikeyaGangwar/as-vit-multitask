@@ -171,12 +171,13 @@ def generate_real_nyuv2_visual_showcase():
                 
         axes[row, 0].set_ylabel(f"NYUv2: {s['name']}", fontsize=11, fontweight="bold")
 
+    os.makedirs("manuscript", exist_ok=True)
+    os.makedirs("assets", exist_ok=True)
     out_path = "manuscript/fig6_real_nyuv2_visual_predictions.png"
     plt.savefig(out_path, bbox_inches="tight", dpi=300)
     plt.close()
     print(f"[+] Authentic Real NYUv2 Qualitative Visual Showcase saved to: {out_path}")
 
-    os.makedirs("assets", exist_ok=True)
     import shutil
     shutil.copyfile(out_path, "assets/fig6_real_nyuv2_visual_predictions.png")
     print(f"[+] Mirrored to assets/fig6_real_nyuv2_visual_predictions.png")
