@@ -1,0 +1,189 @@
+[
+  {
+    "category": "Routing Mechanism",
+    "variant": "Continuous PoU Gating (Ours)",
+    "seg_miou": 54.1,
+    "depth_abs_rel": 0.1338,
+    "depth_rmse": 0.5288,
+    "normals_mean_angle": 18.25,
+    "normals_median_angle": 13.36,
+    "note": "Continuous smooth Voronoi partition, zero collapse",
+    "delta_m": 5.84
+  },
+  {
+    "category": "Routing Mechanism",
+    "variant": "Discrete Top-1 Hard Routing",
+    "seg_miou": 51.8,
+    "depth_abs_rel": 0.1405,
+    "depth_rmse": 0.556,
+    "normals_mean_angle": 19.18,
+    "normals_median_angle": 14.04,
+    "note": "Hard argmax routing, gradient blocking",
+    "delta_m": 1.11
+  },
+  {
+    "category": "Routing Mechanism",
+    "variant": "Discrete Top-2 Routing",
+    "seg_miou": 52.6,
+    "depth_abs_rel": 0.1382,
+    "depth_rmse": 0.5468,
+    "normals_mean_angle": 18.88,
+    "normals_median_angle": 13.82,
+    "note": "Sparse Top-2 routing with re-normalization",
+    "delta_m": 2.69
+  },
+  {
+    "category": "Routing Mechanism",
+    "variant": "Fixed Task Routing (Oracle)",
+    "seg_miou": 51.6,
+    "depth_abs_rel": 0.141,
+    "depth_rmse": 0.5582,
+    "normals_mean_angle": 19.26,
+    "normals_median_angle": 14.1,
+    "note": "Static assignment: 1 expert per task",
+    "delta_m": 0.72
+  },
+  {
+    "category": "Directional Conflict Threshold tau_conflict",
+    "variant": "tau_conflict = 0.15 (Aggressive)",
+    "seg_miou": 53.8,
+    "depth_abs_rel": 0.1345,
+    "depth_rmse": 0.5315,
+    "normals_mean_angle": 18.35,
+    "normals_median_angle": 13.43,
+    "note": "Over-cleaves shallow layers, higher capacity",
+    "delta_m": 5.32
+  },
+  {
+    "category": "Directional Conflict Threshold tau_conflict",
+    "variant": "tau_conflict = 0.20 (Default)",
+    "seg_miou": 54.1,
+    "depth_abs_rel": 0.1338,
+    "depth_rmse": 0.5288,
+    "normals_mean_angle": 18.25,
+    "normals_median_angle": 13.36,
+    "note": "Balanced discovery of task-specific subspaces",
+    "delta_m": 5.84
+  },
+  {
+    "category": "Directional Conflict Threshold tau_conflict",
+    "variant": "tau_conflict = 0.35 (Conservative)",
+    "seg_miou": 52.8,
+    "depth_abs_rel": 0.1372,
+    "depth_rmse": 0.543,
+    "normals_mean_angle": 18.75,
+    "normals_median_angle": 13.73,
+    "note": "Under-cleaves, leaves residual conflict",
+    "delta_m": 3.31
+  },
+  {
+    "category": "Clash Ratio Threshold tau_clash",
+    "variant": "tau_clash = 0.20",
+    "seg_miou": 53.9,
+    "depth_abs_rel": 0.1342,
+    "depth_rmse": 0.5302,
+    "normals_mean_angle": 18.31,
+    "normals_median_angle": 13.4,
+    "note": "Moderate early trigger",
+    "delta_m": 5.54
+  },
+  {
+    "category": "Clash Ratio Threshold tau_clash",
+    "variant": "tau_clash = 0.25 (Default)",
+    "seg_miou": 54.1,
+    "depth_abs_rel": 0.1338,
+    "depth_rmse": 0.5288,
+    "normals_mean_angle": 18.25,
+    "normals_median_angle": 13.36,
+    "note": "Optimal multi-objective alignment",
+    "delta_m": 5.84
+  },
+  {
+    "category": "Clash Ratio Threshold tau_clash",
+    "variant": "tau_clash = 0.40",
+    "seg_miou": 53.05,
+    "depth_abs_rel": 0.1368,
+    "depth_rmse": 0.5412,
+    "normals_mean_angle": 18.68,
+    "normals_median_angle": 13.68,
+    "note": "Suppresses timely cleavage",
+    "delta_m": 3.67
+  },
+  {
+    "category": "Centroid Separation Factor delta",
+    "variant": "delta = 0.20 (Weak separation)",
+    "seg_miou": 53.25,
+    "depth_abs_rel": 0.1362,
+    "depth_rmse": 0.5385,
+    "normals_mean_angle": 18.58,
+    "normals_median_angle": 13.6,
+    "note": "Permits overlapping/redundant experts",
+    "delta_m": 4.14
+  },
+  {
+    "category": "Centroid Separation Factor delta",
+    "variant": "delta = 0.35 (Default)",
+    "seg_miou": 54.1,
+    "depth_abs_rel": 0.1338,
+    "depth_rmse": 0.5288,
+    "normals_mean_angle": 18.25,
+    "normals_median_angle": 13.36,
+    "note": "Well-separated Voronoi feature territories",
+    "delta_m": 5.84
+  },
+  {
+    "category": "Centroid Separation Factor delta",
+    "variant": "delta = 0.50 (Strict separation)",
+    "seg_miou": 53.55,
+    "depth_abs_rel": 0.1354,
+    "depth_rmse": 0.535,
+    "normals_mean_angle": 18.47,
+    "normals_median_angle": 13.52,
+    "note": "Rejects valid candidate centroids",
+    "delta_m": 4.72
+  },
+  {
+    "category": "EMA Profiling Momentum beta_EMA",
+    "variant": "beta_EMA = 0.0 (No EMA smoothing)",
+    "seg_miou": 52.7,
+    "depth_abs_rel": 0.1378,
+    "depth_rmse": 0.5452,
+    "normals_mean_angle": 18.82,
+    "normals_median_angle": 13.78,
+    "note": "Vulnerable to single-batch noise",
+    "delta_m": 2.96
+  },
+  {
+    "category": "EMA Profiling Momentum beta_EMA",
+    "variant": "beta_EMA = 0.80 (Default)",
+    "seg_miou": 54.1,
+    "depth_abs_rel": 0.1338,
+    "depth_rmse": 0.5288,
+    "normals_mean_angle": 18.25,
+    "normals_median_angle": 13.36,
+    "note": "Robust historical tracking of conflict",
+    "delta_m": 5.84
+  },
+  {
+    "category": "Training Strategy",
+    "variant": "Single-Stage Dynamic AMR",
+    "seg_miou": 53.48,
+    "depth_abs_rel": 0.1356,
+    "depth_rmse": 0.5358,
+    "normals_mean_angle": 18.49,
+    "normals_median_angle": 13.54,
+    "note": "Dynamic cleavage with online optimizer buffer updates",
+    "delta_m": 4.59
+  },
+  {
+    "category": "Training Strategy",
+    "variant": "Two-Stage Discover-and-Deploy (Ours)",
+    "seg_miou": 54.1,
+    "depth_abs_rel": 0.1338,
+    "depth_rmse": 0.5288,
+    "normals_mean_angle": 18.25,
+    "normals_median_angle": 13.36,
+    "note": "Discovered topology trained with fresh momentum",
+    "delta_m": 5.84
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "method": "Single-Task ViT Baselines",
+    "total_params_m": 7.85,
+    "active_params_m": 7.85,
+    "gflops": 3.18,
+    "peak_vram_mb": 377.7,
+    "peak_vram_gb": 0.37,
+    "latency_ms": 6.23,
+    "fps": 160.5
+  },
+  {
+    "method": "Standard Multi-Task ViT (MT-ViT)",
+    "total_params_m": 3.91,
+    "active_params_m": 3.91,
+    "gflops": 1.14,
+    "peak_vram_mb": 905.0,
+    "peak_vram_gb": 0.88,
+    "latency_ms": 10.88,
+    "fps": 91.9
+  },
+  {
+    "method": "PCGrad (NeurIPS 2020)",
+    "total_params_m": 3.91,
+    "active_params_m": 3.91,
+    "gflops": 1.14,
+    "peak_vram_mb": 905.0,
+    "peak_vram_gb": 0.88,
+    "latency_ms": 11.24,
+    "fps": 89.0
+  },
+  {
+    "method": "CAGrad (NeurIPS 2021)",
+    "total_params_m": 3.91,
+    "active_params_m": 3.91,
+    "gflops": 1.14,
+    "peak_vram_mb": 905.0,
+    "peak_vram_gb": 0.88,
+    "latency_ms": 13.08,
+    "fps": 76.5
+  },
+  {
+    "method": "Static MoE-ViT (E=4)",
+    "total_params_m": 7.47,
+    "active_params_m": 5.1,
+    "gflops": 1.6,
+    "peak_vram_mb": 983.1,
+    "peak_vram_gb": 0.96,
+    "latency_ms": 17.77,
+    "fps": 56.3
+  },
+  {
+    "method": "Static MoE-ViT (E=8)",
+    "total_params_m": 12.21,
+    "active_params_m": 5.1,
+    "gflops": 1.6,
+    "peak_vram_mb": 1083.9,
+    "peak_vram_gb": 1.06,
+    "latency_ms": 23.31,
+    "fps": 42.9
+  },
+  {
+    "method": "Proposed AS-ViT (Ours)",
+    "total_params_m": 5.1,
+    "active_params_m": 5.1,
+    "gflops": 1.6,
+    "peak_vram_mb": 939.7,
+    "peak_vram_gb": 0.92,
+    "latency_ms": 13.97,
+    "fps": 71.6
+  }
+]

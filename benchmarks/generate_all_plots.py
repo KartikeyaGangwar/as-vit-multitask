@@ -70,9 +70,9 @@ def generate_fig1_architecture_diagram(save_dir: str):
 
     # Subspaces
     subspaces = [
-        (r"Subspace Expert 1: $\Phi_1$ (Seg)", 0.70, 0.22, 0.24, 0.10, "#ffebee", "#c62828"),
-        (r"Subspace Expert 2: $\Phi_2$ (Depth)", 0.70, 0.10, 0.24, 0.10, "#e0f2f1", "#00695c"),
-        (r"Subspace Expert 3: $\Phi_3$ (Normals)", 0.70, -0.02, 0.24, 0.10, "#fff8e1", "#f57f17"),
+        (r"Subspace Expert 1: $\Phi_1$ (Planar Surfaces)", 0.70, 0.22, 0.24, 0.10, "#ffebee", "#c62828"),
+        (r"Subspace Expert 2: $\Phi_2$ (Boundaries & Edges)", 0.70, 0.10, 0.24, 0.10, "#e0f2f1", "#00695c"),
+        (r"Subspace Expert 3: $\Phi_3$ (Texture & Details)", 0.70, -0.02, 0.24, 0.10, "#fff8e1", "#f57f17"),
     ]
     for text, x, y, w, h, bg, border in subspaces:
         rect = patches.FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.02", facecolor=bg, edgecolor=border, linewidth=1.5)
@@ -121,7 +121,7 @@ def generate_fig2_convergence_curves(save_dir: str):
     axes[0].plot(epochs, loss_as_vit, label="Proposed AS-ViT (Ours)", color="#2e7d32", lw=3)
     axes[0].set_xlabel("Training Epochs")
     axes[0].set_ylabel("Multi-Task Total Loss")
-    axes[0].set_title("(a) Multi-Task Training Convergence")
+    axes[0].set_title("(a) Multi-Task Convergence Dynamics (Schematic)")
     axes[0].legend()
 
     # Multi-Task Gain Delta M Curve
@@ -133,11 +133,11 @@ def generate_fig2_convergence_curves(save_dir: str):
     axes[1].axhline(0, color="gray", linestyle=":", lw=1.5, label="Single-Task Baseline (0%)")
     axes[1].set_xlabel("Training Epochs")
     axes[1].set_ylabel(r"Multi-Task Gain $\Delta M$ (%)")
-    axes[1].set_title(r"(b) Multi-Task Gain Evolution ($\Delta M$)")
+    axes[1].set_title(r"(b) Multi-Task Gain Evolution ($\Delta M$, Schematic)")
     axes[1].legend()
 
     plt.tight_layout()
-    fig_path = os.path.join(save_dir, "fig2_convergence_curves.png")
+    fig_path = os.path.join(save_dir, "fig4_convergence_curves.png")
     plt.savefig(fig_path, bbox_inches="tight")
     plt.close()
     print(f"  [+] Saved: {fig_path}")
@@ -148,14 +148,14 @@ def generate_fig3_gram_matrix_heatmaps(save_dir: str):
     print("  [+] Generating Figure 3: Inter-Task Gram Heatmaps...")
     tasks = ["Segmentation", "Depth", "Normals"]
     
-    # Gram matrix before cleavage (severe conflict between Seg and Normals)
+    # Cosine alignment matrix before cleavage (severe conflict between Seg and Normals)
     G_before = np.array([
         [ 1.00, -0.68, -0.74],
         [-0.68,  1.00,  0.35],
         [-0.74,  0.35,  1.00],
     ])
     
-    # Gram matrix after AS-ViT cleavage (subspaces isolated, cross-conflict -> 0)
+    # Cosine alignment matrix after AS-ViT cleavage (subspaces isolated, cross-conflict -> 0)
     G_after = np.array([
         [ 1.00,  0.12,  0.08],
         [ 0.12,  1.00,  0.22],
@@ -169,7 +169,7 @@ def generate_fig3_gram_matrix_heatmaps(save_dir: str):
     axes[0].set_yticks(range(3))
     axes[0].set_xticklabels(tasks)
     axes[0].set_yticklabels(tasks)
-    axes[0].set_title("(a) Monolithic ViT Gram Matrix ($\\lambda_{\\min} = -0.78$)\n[Destructive Gradient Clashing]")
+    axes[0].set_title("(a) Monolithic ViT Cosine Conflict Matrix (Schematic)\n[Clash Ratio: 66.7%, Min Cosine: -0.74]", fontsize=10, pad=10)
     for i in range(3):
         for j in range(3):
             axes[0].text(j, i, f"{G_before[i, j]:+.2f}", ha="center", va="center", 
@@ -180,35 +180,35 @@ def generate_fig3_gram_matrix_heatmaps(save_dir: str):
     axes[1].set_yticks(range(3))
     axes[1].set_xticklabels(tasks)
     axes[1].set_yticklabels(tasks)
-    axes[1].set_title("(b) AS-ViT Cleaved Subspaces ($\\lambda_{\\min} = +0.08$)\n[Orthogonal Parameter Manifolds]")
+    axes[1].set_title("(b) AS-ViT Cleaved Subspaces Alignment (Schematic)\n[Clash Ratio: 0.0%, Min Cosine: +0.08]", fontsize=10, pad=10)
     for i in range(3):
         for j in range(3):
             axes[1].text(j, i, f"{G_after[i, j]:+.2f}", ha="center", va="center", 
                          color="white" if abs(G_after[i, j]) > 0.5 else "black", fontweight="bold")
 
-    fig.colorbar(im2, ax=axes.ravel().tolist(), shrink=0.8, label=r"Cosine Alignment $\cos \angle(\mathbf{g}_i, \mathbf{g}_j)$")
+    fig.colorbar(im2, ax=axes.ravel().tolist(), shrink=0.8, label=r"Pairwise Cosine Alignment $\mathcal{C}_{k, ij} = \langle \tilde{\mathbf{g}}_i, \tilde{\mathbf{g}}_j \rangle$")
     
-    fig_path = os.path.join(save_dir, "fig3_gram_matrix_heatmaps.png")
+    fig_path = os.path.join(save_dir, "fig2_gram_matrix_heatmaps.png")
     plt.savefig(fig_path, bbox_inches="tight")
     plt.close()
     print(f"  [+] Saved: {fig_path}")
 
 
-def generate_fig4_latent_tsne_territories(save_dir: str):
+def generate_fig3_latent_tsne_territories(save_dir: str):
     """Generates 2D t-SNE latent subspace territory visualization."""
-    print("  [+] Generating Figure 4: Latent Token Territory Clustering (t-SNE)...")
+    print("  [+] Generating Figure 3: Latent Token Territory Clustering (t-SNE)...")
     np.random.seed(42)
     n_pts = 300
     
-    # 3 distinct task-specialized clusters in latent space
+    # 3 distinct feature-specialized clusters in latent space
     c1 = np.random.randn(n_pts, 2) * 0.6 + np.array([-2.5, 1.5])
     c2 = np.random.randn(n_pts, 2) * 0.6 + np.array([2.5, 1.5])
     c3 = np.random.randn(n_pts, 2) * 0.6 + np.array([0.0, -2.5])
 
     fig, ax = plt.subplots(figsize=(7, 6))
-    ax.scatter(c1[:, 0], c1[:, 1], c="#d32f2f", alpha=0.6, label=r"Subspace $\Phi_1$ (Semantic Invariant Tokens)", s=35)
-    ax.scatter(c2[:, 0], c2[:, 1], c="#0288d1", alpha=0.6, label=r"Subspace $\Phi_2$ (Continuous Metric Depth Tokens)", s=35)
-    ax.scatter(c3[:, 0], c3[:, 1], c="#388e3c", alpha=0.6, label=r"Subspace $\Phi_3$ (High-Freq Planar Normal Tokens)", s=35)
+    ax.scatter(c1[:, 0], c1[:, 1], c="#d32f2f", alpha=0.6, label=r"Subspace $\Phi_1$ (Planar Surface Tokens)", s=35)
+    ax.scatter(c2[:, 0], c2[:, 1], c="#0288d1", alpha=0.6, label=r"Subspace $\Phi_2$ (Boundary & Edge Tokens)", s=35)
+    ax.scatter(c3[:, 0], c3[:, 1], c="#388e3c", alpha=0.6, label=r"Subspace $\Phi_3$ (Semantic Texture Tokens)", s=35)
 
     # Plot Centroids
     ax.scatter([-2.5], [1.5], c="black", marker="*", s=250, edgecolors="white", linewidths=1.5, label=r"Centroids $\mathbf{c}_k$")
@@ -219,13 +219,13 @@ def generate_fig4_latent_tsne_territories(save_dir: str):
     ax.plot([-3.5, 3.5], [-0.5, -0.5], "k--", alpha=0.4, lw=1.5)
     ax.plot([0.0, 0.0], [-0.5, 3.5], "k--", alpha=0.4, lw=1.5)
 
-    ax.set_title("t-SNE Latent Feature Space & Partition of Unity (PoU) Territories")
+    ax.set_title("Latent Feature Space & Partition of Unity (PoU) Territories (Schematic)")
     ax.set_xlabel("Latent Manifold Dimension 1")
     ax.set_ylabel("Latent Manifold Dimension 2")
     ax.legend(loc="upper right", framealpha=0.9)
 
     plt.tight_layout()
-    fig_path = os.path.join(save_dir, "fig4_latent_tsne_territories.png")
+    fig_path = os.path.join(save_dir, "fig3_latent_tsne_territories.png")
     plt.savefig(fig_path, bbox_inches="tight")
     plt.close()
     print(f"  [+] Saved: {fig_path}")
@@ -296,21 +296,19 @@ def generate_fig5_qualitative_predictions(save_dir: str):
 
 
 def main():
-    save_dir = "manuscript"
-    os.makedirs(save_dir, exist_ok=True)
     setup_matplotlib_style()
+    for save_dir in ["manuscript", "assets"]:
+        os.makedirs(save_dir, exist_ok=True)
+        print("=" * 75)
+        print(f"  GENERATING ALL PUBLICATION-GRADE FIGURES -> {save_dir}")
+        print("=" * 75)
 
-    print("=" * 75)
-    print("  GENERATING ALL PUBLICATION-GRADE FIGURES (IEEE TPAMI / CVPR)")
-    print("=" * 75)
+        generate_fig1_architecture_diagram(save_dir)
+        generate_fig2_gram_matrix_heatmaps(save_dir)
+        generate_fig3_latent_tsne_territories(save_dir)
+        generate_fig4_convergence_curves(save_dir)
 
-    generate_fig1_architecture_diagram(save_dir)
-    generate_fig2_convergence_curves(save_dir)
-    generate_fig3_gram_matrix_heatmaps(save_dir)
-    generate_fig4_latent_tsne_territories(save_dir)
-    generate_fig5_qualitative_predictions(save_dir)
-
-    print("\n[+] All 5 Publication Figures Generated Successfully in `manuscript/`!")
+    print("\n[+] All Publication Figures (Figs 1-4) Generated Successfully in `manuscript/` and `assets/`!")
 
 
 if __name__ == "__main__":

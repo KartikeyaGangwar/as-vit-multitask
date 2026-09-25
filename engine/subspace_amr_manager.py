@@ -31,10 +31,17 @@ class LatentSubspaceAMRManager:
         max_subspaces_per_block: int = 8,
         min_centroid_distance_factor: float = 0.35,
         conflict_threshold: float = 0.20,
+        cooldown_epochs: int = 2,
+        min_bandwidth: float = 0.20,
+        initial_bandwidth: float = 0.50,
     ):
         self.max_subspaces = max_subspaces_per_block
         self.min_dist_factor = min_centroid_distance_factor
         self.conflict_threshold = conflict_threshold
+        self.cooldown_epochs = cooldown_epochs
+        self.min_bandwidth = min_bandwidth
+        self.initial_bandwidth = initial_bandwidth
+        self.last_cleavage_epoch: Dict[int, int] = {}
         self.cleavage_events: List[Dict] = []
 
     def extract_clashing_latent_centroid(
@@ -61,9 +68,12 @@ class LatentSubspaceAMRManager:
                     grad_weights = grad_weights + token_norms
 
         if grad_weights.sum() < 1e-6:
-            # Fallback: token variance weighted center
+            # Fallback 1: token variance weighted center
             token_vars = torch.var(latent_tokens, dim=-1) # [B, M]
-            grad_weights = token_vars + 1e-6
+            grad_weights = token_vars
+            if grad_weights.sum() < 1e-6:
+                # Fallback 2: direct spatial token mean across mini-batch
+                return latent_tokens.mean(dim=(0, 1)).detach()
 
         grad_weights = grad_weights.clamp_min(1e-6)
         flat_tokens = latent_tokens.reshape(B * M, D)
@@ -92,6 +102,10 @@ class LatentSubspaceAMRManager:
         if block.num_subspaces >= self.max_subspaces:
             return False
 
+        if (not force) and (block_idx in self.last_cleavage_epoch):
+            if (epoch - self.last_cleavage_epoch[block_idx]) < self.cooldown_epochs:
+                return False
+
         for k in range(block.num_subspaces):
             expert = block.experts[k]
             should_cleave, metrics, task_clash_scores = profiler.profile_subspace_expert(
@@ -119,6 +133,7 @@ class LatentSubspaceAMRManager:
 
                 # Execute Cleavage
                 new_idx = block.spawn_subspace(child_centroid, parent_idx=k)
+                self.last_cleavage_epoch[block_idx] = epoch
                 
                 # Recalibrate Voronoi Bandwidth: sigma_k = 0.5 * min_{j != k} ||c_k - c_j||
                 all_centroids = block.centroids # [N+1, D]
@@ -126,19 +141,24 @@ class LatentSubspaceAMRManager:
                     dists = torch.cdist(all_centroids, all_centroids)
                     dists.fill_diagonal_(float("inf"))
                     min_pairwise = torch.min(dists).item()
-                    block.bandwidth = max(0.20, 0.50 * min_pairwise)
+                    block.bandwidth = max(self.min_bandwidth, 0.50 * min_pairwise)
+                else:
+                    block.bandwidth = self.initial_bandwidth
                 
                 event = {
                     "epoch": epoch,
                     "block_idx": block_idx,
                     "parent_expert": k,
                     "child_expert": new_idx,
-                    "min_eigenvalue": metrics["min_eigenvalue"],
+                    "min_eigenvalue": metrics.get("min_eigenvalue", 0.0),
+                    "min_clash": metrics.get("min_clash", 0.0),
+                    "mean_clash": metrics.get("mean_clash", 0.0),
+                    "clash_ratio": metrics.get("clash_ratio", 0.0),
                     "centroid_norm": float(child_centroid.norm().item()),
                     "total_experts_in_block": block.num_subspaces,
                 }
                 self.cleavage_events.append(event)
-                print(f"  [AMR Cleavage @ Epoch {epoch:3d}] Block {block_idx:2d} Expert {k} -> Spawned Expert {new_idx} (Total: {block.num_subspaces}, lambda_min: {metrics['min_eigenvalue']:.3f})")
+                print(f"  [AMR Cleavage @ Epoch {epoch:3d}] Block {block_idx:2d} Expert {k} -> Spawned Expert {new_idx} (Total: {block.num_subspaces}, clash_ratio: {metrics.get('clash_ratio', 0.0):.2f}, min_clash: {metrics.get('min_clash', 0.0):.3f})")
                 return True
                 
         return False

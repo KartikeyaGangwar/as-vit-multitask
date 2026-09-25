@@ -57,14 +57,17 @@ desktop.ini
 *.zip
 *.h5
 *.hdf5
+!data/nyuv2_real_samples/*.h5
 data/nyuv2_raw/
 data/nyuv2_real/*.h5
 
-# Confidential Manuscript, Papers & Personal Notes
+# Confidential Manuscript, Papers, Reviews & Personal Notes
 manuscript/
 paper/
 papers/
 notes/
+technical_review/
 *.notes
 *.draft
+
 

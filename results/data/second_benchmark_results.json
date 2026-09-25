@@ -1,0 +1,65 @@
+[
+  {
+    "method": "Single-Task ViT Baselines",
+    "provenance": "Reproduced (Independent Models)",
+    "task1_acc": 88.4,
+    "task2_acc": 85.6,
+    "mean_acc": 87.0,
+    "delta_m": 0.0,
+    "params_m": 7.85
+  },
+  {
+    "method": "Standard Multi-Task ViT (MT-ViT)",
+    "provenance": "Reproduced (Shared Backbone)",
+    "task1_acc": 85.1,
+    "task2_acc": 81.9,
+    "mean_acc": 83.5,
+    "delta_m": -4.03,
+    "params_m": 3.91
+  },
+  {
+    "method": "PCGrad (NeurIPS 2020)",
+    "provenance": "Reproduced (Yu et al. 2020)",
+    "task1_acc": 86.8,
+    "task2_acc": 84.1,
+    "mean_acc": 85.45,
+    "delta_m": -1.78,
+    "params_m": 3.91
+  },
+  {
+    "method": "CAGrad (NeurIPS 2021)",
+    "provenance": "Reproduced (Liu et al. 2021)",
+    "task1_acc": 87.5,
+    "task2_acc": 84.9,
+    "mean_acc": 86.2,
+    "delta_m": -0.92,
+    "params_m": 3.91
+  },
+  {
+    "method": "Static MoE-ViT (E=4)",
+    "provenance": "Reproduced (Top-2 Router)",
+    "task1_acc": 88.9,
+    "task2_acc": 86.2,
+    "mean_acc": 87.55,
+    "delta_m": 0.63,
+    "params_m": 7.47
+  },
+  {
+    "method": "Static MoE-ViT (E=8)",
+    "provenance": "Reproduced (Top-2 Router)",
+    "task1_acc": 89.3,
+    "task2_acc": 86.8,
+    "mean_acc": 88.05,
+    "delta_m": 1.21,
+    "params_m": 12.21
+  },
+  {
+    "method": "Proposed AS-ViT (Ours)",
+    "provenance": "Proposed Architecture",
+    "task1_acc": 90.6,
+    "task2_acc": 88.2,
+    "mean_acc": 89.4,
+    "delta_m": 2.76,
+    "params_m": 5.1
+  }
+]
