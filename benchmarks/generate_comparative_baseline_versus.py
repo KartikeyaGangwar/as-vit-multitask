@@ -28,6 +28,11 @@ from benchmarks.generate_real_nyuv2_qualitative_panel import colormap_normals, c
 
 def generate_baseline_versus_panel():
     print("[*] Generating Authentic Baseline 'VERSUS' Qualitative Panel for IEEE TPAMI...")
+    plt.rcParams.update({
+        "font.family": "serif",
+        "font.serif": ["Times New Roman", "DejaVu Serif", "STIXGeneral", "serif"],
+        "mathtext.fontset": "stix",
+    })
     
     # We evaluate on 2 highly detailed, canonical NYUv2 test scenes
     scenes = [

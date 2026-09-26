@@ -64,6 +64,11 @@ def colormap_segmentation(seg: np.ndarray, num_classes: int = 14) -> np.ndarray:
 
 def generate_real_nyuv2_visual_showcase():
     print("[*] Generating authentic real NYUv2 qualitative showcase for IEEE TPAMI...")
+    plt.rcParams.update({
+        "font.family": "serif",
+        "font.serif": ["Times New Roman", "DejaVu Serif", "STIXGeneral", "serif"],
+        "mathtext.fontset": "stix",
+    })
     samples = [
         {"id": "0001", "name": "Bedroom"},
         {"id": "0002", "name": "Living Room"},
