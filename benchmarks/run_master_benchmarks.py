@@ -4,7 +4,7 @@ Master Comparative Benchmark Suite for Multi-Task Vision (NYUv2).
 Trains and evaluates all baselines (Single-Task, Monolithic, PCGrad, CAGrad, MoE-4, MoE-8, AS-ViT)
 with strict per-model GPU memory cleanup (gc.collect + torch.cuda.empty_cache) and live flushed logs.
 
-Author: Kartikey Singh (Department of Mathematics, University of Delhi)
+Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 Contact: kartikeysingh525@protonmail.com
 ================================================================================
 """

@@ -8,7 +8,7 @@ Compares dense multi-task visual predictions side-by-side:
 across Semantic Segmentation, Metric Depth, and 3D Surface Normals on authentic
 real indoor scenes from the official NYUv2 test split.
 
-Author: Kartikey Singh (Department of Mathematics, University of Delhi)
+Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 ================================================================================
 """
 import os

@@ -9,7 +9,7 @@ Ablates:
   5. EMA Smoothing Momentum beta_EMA in [0.0, 0.80]
   6. Execution Strategy: Two-Stage Discover-and-Deploy vs Single-Stage Dynamic
 
-Author: Kartikey Singh (Department of Mathematics, University of Delhi)
+Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 ================================================================================
 """
 import os

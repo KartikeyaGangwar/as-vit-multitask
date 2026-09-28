@@ -13,7 +13,7 @@ Generates:
   4. fig4_convergence_curves.png       - Multi-Task Loss Convergence & Gain Delta M Dynamics.
                                          All 7 Benchmark Architectures included, tight legend below x-axis.
 
-Author: Kartikey Singh (Department of Mathematics, University of Delhi)
+Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 ================================================================================
 """
 import os

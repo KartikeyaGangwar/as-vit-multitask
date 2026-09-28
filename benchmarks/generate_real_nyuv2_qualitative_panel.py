@@ -10,7 +10,7 @@ Uses 100% genuine real indoor RGB-D frames from the official NYUv2 test split:
   - Point-cloud camera intrinsic back-projected 3D surface normal vector fields
   - AS-ViT model predictions and learned Partition of Unity (PoU) allocation maps
 
-Author: Kartikey Singh (Department of Mathematics, University of Delhi)
+Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 ================================================================================
 """
 import os

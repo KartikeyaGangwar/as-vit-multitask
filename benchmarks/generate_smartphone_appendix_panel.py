@@ -8,7 +8,7 @@ tractors, agricultural fields, campus buildings, automobiles) and produces
 a publication-grade multi-task prediction panel:
   [Input Smartphone RGB | AS-ViT Segmentation | Metric Depth | 3D Normals | PoU Subspace Map]
 
-Author: Kartikey Singh (Department of Mathematics, University of Delhi)
+Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 ================================================================================
 """
 import os

@@ -3,7 +3,7 @@
 Autonomous Latent Subspace AMR Manager for AS-ViT.
 Manages conflict centroid extraction, non-redundancy filtering, and subspace cleavage.
 
-Author: Kartikey Singh (Department of Mathematics, University of Delhi)
+Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 Contact: kartikeysingh525@protonmail.com
 ================================================================================
 """

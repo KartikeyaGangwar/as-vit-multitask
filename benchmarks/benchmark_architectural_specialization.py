@@ -11,7 +11,7 @@ Measures and profiles across all transformer blocks l in {1, ..., L}:
   5. Dead Expert Frequency (Proving Zero Router Collapse: mu_k > 0 for all k)
   6. Inter-Centroid Spatial Separation min_{i!=j} ||c_i - c_j||_2 and Calibrated Bandwidths sigma_{l,k}
 
-Author: Kartikey Singh (Department of Mathematics, University of Delhi)
+Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 ================================================================================
 """
 import os

@@ -4,7 +4,7 @@ Two-Stage Discover-and-Deploy Training Orchestrator for AS-ViT.
 Stage 1: Autonomous Latent Feature AMR Discovery.
 Stage 2: Clean Production Retraining with Fresh Optimizer Momentum.
 
-Author: Kartikey Singh (Department of Mathematics, University of Delhi)
+Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 Contact: kartikeysingh525@protonmail.com
 ================================================================================
 """

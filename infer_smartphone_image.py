@@ -10,7 +10,7 @@ Outputs 5-panel visualization:
   4. AS-ViT 3D Surface Normal Vector Field (S^2 unit sphere colormap)
   5. AS-ViT Discovered Partition of Unity (PoU) Expert Allocation Map
 
-Author: Kartikey Singh (Department of Mathematics, University of Delhi)
+Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 ================================================================================
 """
 import os

@@ -3,7 +3,7 @@
 Comprehensive Multi-Task Evaluation Suite for NYUv2 and Cityscapes.
 Memory-Optimized with O(1) Streaming Accumulators for Million-Pixel Datasets.
 
-Author: Kartikey Singh (Department of Mathematics, University of Delhi)
+Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 Contact: kartikeysingh525@protonmail.com
 ================================================================================
 """

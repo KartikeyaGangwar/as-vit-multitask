@@ -16,7 +16,7 @@ Evaluated across all 7 benchmark methods:
   6. Static MoE-ViT (E=8, Top-2 Routing)
   7. Proposed AS-ViT (Ours, Autonomous AMR Discovery + PoU Routing)
 
-Author: Kartikey Singh (Department of Mathematics, University of Delhi)
+Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 ================================================================================
 """
 import os

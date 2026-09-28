@@ -7,7 +7,7 @@
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0009--1973--7532-a6ce39.svg?logo=orcid&logoColor=white)](https://orcid.org/0009-0009-1973-7532)
 [![Paper](https://img.shields.io/badge/Paper-IEEE%20TPAMI%20(Under%20Review)-brightgreen.svg)](#-citation)
 
-> **Author:** **Kartikey Singh**  
+> **Author:** **Kartikeya Gangwar**  
 > **Affiliation:** Department of Mathematics, University of Delhi, Delhi, 110007, India  
 > **Contact:** `kartikeysingh525@protonmail.com`  
 > **ORCID:** [`0009-0009-1973-7532`](https://orcid.org/0009-0009-1973-7532)  
@@ -50,7 +50,7 @@ Existing remedies either:
 
 ## 🏛️ The Adaptive Subspace (AS) Research Trilogy
 
-This repository represents the Foundational AI & Computer Vision culmination of a cohesive three-act theoretical research program authored by **Kartikey Singh**, systematically eliminating destructive gradient interference across parameter manifolds:
+This repository represents the Foundational AI & Computer Vision culmination of a cohesive three-act theoretical research program authored by **Kartikeya Gangwar**, systematically eliminating destructive gradient interference across parameter manifolds:
 
 ```
                   THE ADAPTIVE SUBSPACE (AS) PARADIGM
@@ -288,9 +288,9 @@ All experimental results, vectorized Jacobian profiling kernels, and multi-task 
 If you find this work, codebase, or mathematical formulation useful in your research, please cite:
 
 ```bibtex
-@article{singh2026asvit,
+@article{gangwar2026asvit,
   title={AS-ViT: Adaptive Subspace Vision Transformers with Autonomous Gradient-Clash Routing for Multi-Task Learning},
-  author={Singh, Kartikey},
+  author={Gangwar, Kartikeya},
   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)},
   year={2026},
   note={Under review. Correspondence: kartikeysingh525@protonmail.com}
