@@ -2,6 +2,8 @@
 
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.6%2B-ee4c2c.svg?logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![CUDA](https://img.shields.io/badge/CUDA-12.x-76b900.svg?logo=nvidia&logoColor=white)](https://developer.nvidia.com/cuda-toolkit)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22974130.svg)](https://doi.org/10.5281/zenodo.22974130)
+[![Preprint: Open Access](https://img.shields.io/badge/Preprint-Zenodo%20(Open%20Access)-blue.svg)](https://doi.org/10.5281/zenodo.22974130)
 [![Target](https://img.shields.io/badge/Target-IEEE%20TPAMI%20%2F%20CVPR-blue.svg)](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0009--1973--7532-a6ce39.svg?logo=orcid&logoColor=white)](https://orcid.org/0009-0009-1973-7532)
@@ -11,6 +13,7 @@
 > **Affiliation:** Department of Mathematics, University of Delhi, Delhi, 110007, India  
 > **Contact:** `kartikeyagangwar@proton.me`  
 > **ORCID:** [`0009-0009-1973-7532`](https://orcid.org/0009-0009-1973-7532)  
+> **Open Access Preprint:** [**10.5281/zenodo.22974130**](https://doi.org/10.5281/zenodo.22974130) *(Full 15-page manuscript & appendices unpaywalled)*  
 > **Target Venue:** *IEEE Transactions on Pattern Analysis and Machine Intelligence (IEEE TPAMI)* / *IEEE/CVF CVPR*
 
 ---
@@ -61,7 +64,7 @@ This repository represents the Foundational AI & Computer Vision culmination of 
 Null-Space PINN             AS-PINN                      AS-ViT (This Repo)
 (Algebraic Direct-Sum)      (Autonomous PDE AMR)         (Feature-Space MoE)
 [null-space-pinn]           [as-pinn]                    [as-vit-multitask]
-DOI: 10.5281/zenodo.22132799                             Target: IEEE TPAMI / CVPR
+DOI: 10.5281/zenodo.22132799 DOI: 10.5281/zenodo.22822521 DOI: 10.5281/zenodo.22974130
 ```
 
 1. **Act I: Algebraic Direct-Sum Partitioning (`null-space-pinn`):**  
@@ -72,12 +75,12 @@ DOI: 10.5281/zenodo.22132799                             Target: IEEE TPAMI / CV
 2. **Act II: Autonomous Dynamic Parameter AMR (`as-pinn`):**  
    *Title:* *"Adaptive $N$-Subspace Physics-Informed Neural Networks: Autonomous Parameter-Space AMR via Vectorized Gradient Conflict Profiling"*  
    *Focus:* Generalizes static partitioning into dynamic, autonomous parameter-space Adaptive Mesh Refinement (AMR). Uses vectorized Gram conflict matrices (`torch.func.vmap`) to trigger autonomous subspace fission with exact zero-disruption solution invariance ($\|u^{(N+1)} - u^{(N)}\| \equiv 0$) across 9 canonical PDEs.  
-   *Repo:* [https://github.com/KartikeyaGangwar/as-pinn](https://github.com/KartikeyaGangwar/as-pinn)
+   *Repo:* [https://github.com/KartikeyaGangwar/as-pinn](https://github.com/KartikeyaGangwar/as-pinn) | *DOI:* [10.5281/zenodo.22822521](https://doi.org/10.5281/zenodo.22822521)
 
 3. **Act III: Foundational Vision Transformers & MoE (`as-vit-multitask`):**  
    *Title:* *"AS-ViT: Adaptive Subspace Vision Transformers with Autonomous Gradient-Clash Routing for Multi-Task Learning"*  
    *Focus:* Transcends physical PDE space into the latent token manifold of Vision Transformers. Eliminates negative transfer in multi-task perception (segmentation, depth, surface normals) by continuously tracking inter-task Gram matrix eigenvalues ($\lambda_{\min}(\mathcal{G}) < -\tau_{\text{conflict}}$) and dynamically spawning expert subspaces via Feature-Conditioned Partition of Unity (PoU) gating.  
-   *Repo:* [https://github.com/KartikeyaGangwar/as-vit-multitask](https://github.com/KartikeyaGangwar/as-vit-multitask) | *Target:* IEEE TPAMI / CVPR
+   *Repo:* [https://github.com/KartikeyaGangwar/as-vit-multitask](https://github.com/KartikeyaGangwar/as-vit-multitask) | *Preprint DOI:* [10.5281/zenodo.22974130](https://doi.org/10.5281/zenodo.22974130) | *Target Venue:* IEEE TPAMI / CVPR
 
 
 ## 🔬 The SciML-to-Vision Mathematical Bridge
@@ -288,7 +291,16 @@ All experimental results, vectorized Jacobian profiling kernels, and multi-task 
 If you find this work, codebase, or mathematical formulation useful in your research, please cite:
 
 ```bibtex
-@article{gangwar2026asvit,
+@article{gangwar2026asvit_zenodo,
+  title={AS-ViT: Adaptive Subspace Vision Transformers with Autonomous Gradient-Clash Routing for Multi-Task Learning},
+  author={Gangwar, Kartikeya},
+  journal={Zenodo Open-Access Preprint},
+  year={2026},
+  doi={10.5281/zenodo.22974130},
+  url={https://doi.org/10.5281/zenodo.22974130}
+}
+
+@article{gangwar2026asvit_tpami,
   title={AS-ViT: Adaptive Subspace Vision Transformers with Autonomous Gradient-Clash Routing for Multi-Task Learning},
   author={Gangwar, Kartikeya},
   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)},
