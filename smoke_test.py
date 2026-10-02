@@ -4,7 +4,7 @@ Comprehensive End-to-End Smoke Test Suite for AS-ViT Multi-Task Vision Architect
 Verifies all 6 architectural axioms, tensor shapes, and Two-Stage discovery on GPU.
 
 Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
-Contact: kartikeysingh525@protonmail.com
+Contact: kartikeyagangwar@proton.me
 ================================================================================
 """
 import copy

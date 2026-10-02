@@ -5,7 +5,7 @@ Trains and evaluates all baselines (Single-Task, Monolithic, PCGrad, CAGrad, MoE
 with strict per-model GPU memory cleanup (gc.collect + torch.cuda.empty_cache) and live flushed logs.
 
 Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
-Contact: kartikeysingh525@protonmail.com
+Contact: kartikeyagangwar@proton.me
 ================================================================================
 """
 import argparse

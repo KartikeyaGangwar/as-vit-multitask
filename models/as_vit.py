@@ -4,7 +4,7 @@ Adaptive Subspace Vision Transformer (AS-ViT) Core Architecture.
 Official PyTorch Implementation for IEEE TPAMI / CVPR.
 
 Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
-Contact: kartikeysingh525@protonmail.com
+Contact: kartikeyagangwar@proton.me
 ================================================================================
 """
 import math

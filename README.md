@@ -9,7 +9,7 @@
 
 > **Author:** **Kartikeya Gangwar**  
 > **Affiliation:** Department of Mathematics, University of Delhi, Delhi, 110007, India  
-> **Contact:** `kartikeysingh525@protonmail.com`  
+> **Contact:** `kartikeyagangwar@proton.me`  
 > **ORCID:** [`0009-0009-1973-7532`](https://orcid.org/0009-0009-1973-7532)  
 > **Target Venue:** *IEEE Transactions on Pattern Analysis and Machine Intelligence (IEEE TPAMI)* / *IEEE/CVF CVPR*
 
@@ -293,7 +293,7 @@ If you find this work, codebase, or mathematical formulation useful in your rese
   author={Gangwar, Kartikeya},
   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)},
   year={2026},
-  note={Under review. Correspondence: kartikeysingh525@protonmail.com}
+  note={Under review. Correspondence: kartikeyagangwar@proton.me}
 }
 ```
 
