@@ -178,9 +178,9 @@ def run_smoke_test():
     # TEST 6: Full Two-Stage Discover-and-Deploy Mini Pipeline
     # =========================================================================
     print("\n--- TEST 6: Full Two-Stage Discover-and-Deploy Mini Pipeline ---")
-    from train_as_vit import TwoStageASViTTrainer
+    from train_prism import TwoStagePRISMTrainer
     
-    trainer = TwoStageASViTTrainer(
+    trainer = TwoStagePRISMTrainer(
         embed_dim=128,
         depth=2,
         num_heads=2,

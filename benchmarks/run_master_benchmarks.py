@@ -289,7 +289,7 @@ class MasterBenchmarkRunner:
         print("  [STAGE 7/7] PROPOSED PRISM (TWO-STAGE DISCOVER-AND-DEPLOY)", flush=True)
         print("=" * 75, flush=True)
         cleanup_gpu()
-        from train_as_vit import TwoStagePRISMTrainer
+        from train_prism import TwoStagePRISMTrainer
         as_trainer = TwoStagePRISMTrainer(
             embed_dim=self.embed_dim,
             depth=self.depth,

@@ -23,7 +23,7 @@ import torch
 import torch.nn.functional as F
 
 sys.path.insert(0, os.path.abspath("."))
-from models.as_vit import PRISM
+from models.prism import PRISM
 
 
 def colormap_normals(normals: np.ndarray) -> np.ndarray:

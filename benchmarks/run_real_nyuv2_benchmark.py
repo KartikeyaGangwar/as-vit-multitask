@@ -275,7 +275,7 @@ class RealNYUv2BenchmarkRunner:
         print("  [STAGE 7/7] REAL-WORLD PROPOSED PRISM (TWO-STAGE DISCOVER-AND-DEPLOY)", flush=True)
         print("=" * 80, flush=True)
         cleanup_gpu()
-        from train_as_vit import TwoStagePRISMTrainer
+        from train_prism import TwoStagePRISMTrainer
         as_trainer = TwoStagePRISMTrainer(
             embed_dim=self.embed_dim,
             depth=self.depth,

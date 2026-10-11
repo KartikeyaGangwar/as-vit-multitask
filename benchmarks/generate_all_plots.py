@@ -345,10 +345,12 @@ def generate_fig1_architecture_diagram(save_dir: str):
             ha="center", va="center", color="#38bdf8", fontsize=9.5, fontweight="bold", zorder=4)
 
     plt.tight_layout()
+    fig_path_prism = os.path.join(save_dir, "fig1_prism_workflow_pou.png")
+    plt.savefig(fig_path_prism, bbox_inches="tight", dpi=300)
     fig_path = os.path.join(save_dir, "fig1_as_vit_workflow_pou.png")
     plt.savefig(fig_path, bbox_inches="tight", dpi=300)
     plt.close()
-    print(f"  [+] Saved Figure 1 successfully: {fig_path}")
+    print(f"  [+] Saved Figure 1 successfully: {fig_path_prism} and {fig_path}")
 
 
 # ==============================================================================
