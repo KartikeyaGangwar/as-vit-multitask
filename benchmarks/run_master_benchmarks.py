@@ -26,7 +26,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 
-from models.as_vit import PRISM
+from models.prism import PRISM
 from benchmarks.models_baseline import SingleTaskViT, MonolithicMTViT, StaticMoEViT
 from engine.loss_functions import MultiTaskLossModule
 from engine.optimizers.pcgrad import PCGrad

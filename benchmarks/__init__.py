@@ -1,5 +1,5 @@
 """
-AS-ViT Benchmarks Package.
+PRISM Benchmarks Package.
 Exports baseline architectures and benchmark runners.
 """
 from benchmarks.models_baseline import SingleTaskViT, MonolithicMTViT, StaticMoEViT

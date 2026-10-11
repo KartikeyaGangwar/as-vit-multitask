@@ -24,16 +24,16 @@ import numpy as np
 sys.path.insert(0, os.path.abspath("."))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from models.as_vit import ASViT
+from models.prism import PRISM
 
 
-def analyze_as_vit_specialization():
+def analyze_prism_specialization():
     print("[*] Profiling Architectural Specialization & Router Utilization across Layers...")
     
-    # Instantiate discovered AS-ViT topology
+    # Instantiate discovered PRISM topology
     # Topology: Block 1: 1 expert, Block 2: 2 experts, Block 3: 3 experts, Block 4: 2 experts
     discovered_topology = [1, 2, 3, 2]
-    model = ASViT(
+    model = PRISM(
         embed_dim=192,
         depth=4,
         num_heads=4,
@@ -119,4 +119,4 @@ def analyze_as_vit_specialization():
 
 
 if __name__ == "__main__":
-    analyze_as_vit_specialization()
+    analyze_prism_specialization()

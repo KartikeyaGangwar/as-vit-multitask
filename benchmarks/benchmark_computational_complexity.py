@@ -16,7 +16,7 @@ Evaluated across all 7 benchmark architectures:
   - CAGrad (NeurIPS 2021)
   - Static MoE-ViT (E=4, Top-2)
   - Static MoE-ViT (E=8, Top-2)
-  - Proposed AS-ViT (Ours, Autonomous AMR Discovery)
+  - Proposed PRISM (Ours, Autonomous AMR Discovery)
 
 Hardware Platform:
   - Dedicated GPU: NVIDIA GeForce GTX 1650 (4.0 GB)
@@ -34,7 +34,7 @@ import numpy as np
 sys.path.insert(0, os.path.abspath("."))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from models.as_vit import ASViT
+from models.prism import PRISM
 from benchmarks.models_baseline import SingleTaskViT, MonolithicMTViT, StaticMoEViT
 
 
@@ -87,7 +87,7 @@ def compute_flops(model: nn.Module, input_tensor: torch.Tensor) -> float:
             total_flops += top_k * 2.0 * B * M * (2 * D * int(4 * D))
         total_flops += 2.0 * B * H * W * D * (13 + 1 + 3)
         
-    elif isinstance(model, ASViT):
+    elif isinstance(model, (PRISM, ASViT)):
         depth = len(model.blocks)
         for blk in model.blocks:
             total_flops += 2.0 * B * M * (3 * D * D) + 2.0 * B * M * M * D + 2.0 * B * M * (D * D)
@@ -136,7 +136,7 @@ def profile_model_efficiency(
         expert_params = sum(p.numel() for blk in model.blocks for exp in blk.experts for p in exp.parameters()) / (num_exp * 1e6)
         active_params = total_params - (num_exp - 2) * expert_params
         flops = compute_flops(model, torch.zeros(1, 3, 224, 224).to(device))
-    elif "AS-ViT" in name:
+    elif "PRISM" in name:
         total_params = count_parameters(model)
         active_params = total_params # All active subspaces modulate continuously via PoU
         flops = compute_flops(model, torch.zeros(1, 3, 224, 224).to(device))
@@ -223,7 +223,7 @@ def run_full_complexity_benchmark():
         ("CAGrad (NeurIPS 2021)", lambda: MonolithicMTViT(embed_dim=192, depth=4)),
         ("Static MoE-ViT (E=4)", lambda: StaticMoEViT(embed_dim=192, depth=4, num_experts=4, top_k=2)),
         ("Static MoE-ViT (E=8)", lambda: StaticMoEViT(embed_dim=192, depth=4, num_experts=8, top_k=2)),
-        ("Proposed AS-ViT (Ours)", lambda: ASViT(embed_dim=192, depth=4, num_heads=4, initial_subspaces_per_block=[1, 2, 3, 2])),
+        ("Proposed PRISM (Ours)", lambda: PRISM(embed_dim=192, depth=4, num_heads=4, initial_subspaces_per_block=[1, 2, 3, 2])),
     ]
     
     results = []

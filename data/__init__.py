@@ -1,5 +1,5 @@
 """
-AS-ViT Data Package (Synthetic & Real-World Pipelines).
+PRISM Data Package (Synthetic & Real-World Pipelines).
 """
 from data.transforms import JointMultiTaskTransform
 from data.transforms import JointMultiTaskTransform

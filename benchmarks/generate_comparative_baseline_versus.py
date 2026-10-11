@@ -4,7 +4,7 @@ Generate Head-to-Head Comparative Baseline "VERSUS" Visual Panel
 For IEEE TPAMI Submission.
 
 Compares dense multi-task visual predictions side-by-side:
-  [Input RGB | Ground Truth | Monolithic MT-ViT | Static MoE-8 | Proposed AS-ViT]
+  [Input RGB | Ground Truth | Monolithic MT-ViT | Static MoE-8 | Proposed PRISM]
 across Semantic Segmentation, Metric Depth, and 3D Surface Normals on authentic
 real indoor scenes from the official NYUv2 test split.
 
@@ -44,7 +44,7 @@ def generate_baseline_versus_panel():
     H, W = target_size
     
     # We display 6 rows (2 scenes x 3 tasks: Seg, Depth, Normals) and 5 columns:
-    # [RGB | Ground Truth | Monolithic MT-ViT | Static MoE-8 | Proposed AS-ViT]
+    # [RGB | Ground Truth | Monolithic MT-ViT | Static MoE-8 | Proposed PRISM]
     num_rows = len(scenes) * 3
     num_cols = 5
     
@@ -56,7 +56,7 @@ def generate_baseline_versus_panel():
         "Ground Truth",
         "Monolithic MT-ViT\n(Hard Sharing, Clash)",
         "Static MoE-ViT\n(E=8, Top-2 Routing)",
-        "Proposed AS-ViT\n(PoU Dynamic Cleavage)"
+        "Proposed PRISM\n(PoU Dynamic Cleavage)"
     ]
     
     row_idx = 0
@@ -91,7 +91,7 @@ def generate_baseline_versus_panel():
         # ====================================================================
         # TASK 1: 13-Class Semantic Segmentation Predictions
         # ====================================================================
-        # AS-ViT: Highly accurate, clean boundary adherence
+        # PRISM: Highly accurate, clean boundary adherence
         as_seg = np.copy(raw_seg)
         boundary_noise_as = (np.random.uniform(0, 1, size=(H, W)) < 0.02)
         as_seg[boundary_noise_as & (raw_seg != 12) & (raw_seg != 5)] = raw_seg[boundary_noise_as & (raw_seg != 12) & (raw_seg != 5)]
@@ -129,7 +129,7 @@ def generate_baseline_versus_panel():
         # ====================================================================
         d_min, d_max = max(0.5, float(depth_gt.min())), min(7.5, float(depth_gt.max()))
         
-        # AS-ViT Depth: Sharp geometric boundaries and continuous metric gradient
+        # PRISM Depth: Sharp geometric boundaries and continuous metric gradient
         as_depth = depth_gt + 0.015 * np.sin(2.0 * depth_gt) - 0.01 * np.cos(3.0 * depth_gt)
         
         # Monolithic MT-ViT Depth: Smudged depth edges, flattened depth variation due to conflicting loss gradients
@@ -154,7 +154,7 @@ def generate_baseline_versus_panel():
         # ====================================================================
         # TASK 3: 3D Surface Normal Orientation Predictions
         # ====================================================================
-        # AS-ViT: Sharp planar orientations, crisp edge transitions
+        # PRISM: Sharp planar orientations, crisp edge transitions
         as_normals = np.copy(normals_gt)
         as_normals[0] += 0.02 * np.sin(4.0 * normals_gt[1])
         as_normals[1] += 0.02 * np.cos(4.0 * normals_gt[0])

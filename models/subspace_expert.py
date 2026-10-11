@@ -1,5 +1,5 @@
 """
-Individual Subspace Expert Module for AS-ViT.
+Individual Subspace Expert Module for PRISM.
 """
 import torch
 import torch.nn as nn

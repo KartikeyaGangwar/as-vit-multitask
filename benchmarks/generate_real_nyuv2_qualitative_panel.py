@@ -8,7 +8,7 @@ Uses 100% genuine real indoor RGB-D frames from the official NYUv2 test split:
   - Official 13-class semantic segmentation labels (Eigen test split)
   - Official metric depth maps
   - Point-cloud camera intrinsic back-projected 3D surface normal vector fields
-  - AS-ViT model predictions and learned Partition of Unity (PoU) allocation maps
+  - PRISM model predictions and learned Partition of Unity (PoU) allocation maps
 
 Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 ================================================================================
@@ -83,9 +83,9 @@ def generate_real_nyuv2_visual_showcase():
 
     titles = [
         "Real Input RGB",
-        "GT Segmentation", "AS-ViT Segmentation",
-        "GT Metric Depth", "AS-ViT Metric Depth",
-        "GT 3D Normals", "AS-ViT 3D Normals",
+        "GT Segmentation", "PRISM Segmentation",
+        "GT Metric Depth", "PRISM Metric Depth",
+        "GT 3D Normals", "PRISM 3D Normals",
         "PoU Subspace Map"
     ]
 

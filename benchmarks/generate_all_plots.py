@@ -1,6 +1,6 @@
 """
 ================================================================================
-Master Publication-Grade Visual Diagnostics and Plot Generator for AS-ViT
+Master Publication-Grade Visual Diagnostics and Plot Generator for PRISM
 Target: IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)
 
 Generates:
@@ -92,11 +92,11 @@ def draw_arrow(ax, p1, p2, color="#334155", lw=1.8, style="->", zorder=3):
 
 
 # ==============================================================================
-# FIGURE 1: Flagship AS-ViT Architecture & Workflow Diagram (with Real Visuals)
+# FIGURE 1: Flagship PRISM Architecture & Workflow Diagram (with Real Visuals)
 # ==============================================================================
 def generate_fig1_architecture_diagram(save_dir: str):
     """Generates the flagship publication architecture diagram for IEEE TPAMI."""
-    print("  [+] Generating Figure 1: Flagship AS-ViT Architecture & Workflow Diagram...")
+    print("  [+] Generating Figure 1: Flagship PRISM Architecture & Workflow Diagram...")
     fig, ax = plt.subplots(figsize=(16, 7.8), dpi=300)
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
@@ -104,7 +104,7 @@ def generate_fig1_architecture_diagram(save_dir: str):
 
     # Header / Title Bar
     draw_rounded_card(ax, 0.02, 0.925, 0.96, 0.065, "#0f172a", "#0f172a", radius=0.008, zorder=2)
-    ax.text(0.50, 0.957, "Adaptive Subspace Vision Transformer (AS-ViT): Autonomous Feature-Space Cleavage & PoU Routing",
+    ax.text(0.50, 0.957, "PRISM (PRISM): Autonomous Feature-Space Cleavage & PoU Routing",
             ha="center", va="center", color="white", fontsize=13, fontweight="bold", zorder=4)
 
     # Load Real NYUv2 Sample for Authentic Visuals
@@ -341,7 +341,7 @@ def generate_fig1_architecture_diagram(save_dir: str):
 
     # Bottom Overall Metric Banner
     draw_rounded_card(ax, 0.02, 0.015, 0.96, 0.05, "#1e293b", "#0f172a", radius=0.008, zorder=2)
-    ax.text(0.50, 0.04, r"Key Result: Proposed AS-ViT achieves $\mathbf{\Delta M = +5.84\%}$ Multi-Task Gain with 2.22$\times$ Speedup on Cloud GPU Hardware (Tesla T4: 8.49 ms / 117.8 FPS)",
+    ax.text(0.50, 0.04, r"Key Result: Proposed PRISM achieves $\mathbf{\Delta M = +5.84\%}$ Multi-Task Gain with 2.22$\times$ Speedup on Cloud GPU Hardware (Tesla T4: 8.49 ms / 117.8 FPS)",
             ha="center", va="center", color="#38bdf8", fontsize=9.5, fontweight="bold", zorder=4)
 
     plt.tight_layout()
@@ -404,13 +404,13 @@ def generate_fig2_gram_matrix_heatmaps(save_dir: str):
             ax0.text(j, i, f"{val:+.2f}", ha="center", va="center",
                      color=text_color, fontsize=11, fontweight="bold")
 
-    # Subplot 1: Proposed AS-ViT (Hide duplicate y-ticks to avoid ANY overlap)
+    # Subplot 1: Proposed PRISM (Hide duplicate y-ticks to avoid ANY overlap)
     im1 = ax1.imshow(G_after, cmap=cmap, vmin=vmin, vmax=vmax, aspect="auto")
     ax1.set_xticks(range(3))
     ax1.set_yticks(range(3))
     ax1.set_xticklabels(tasks, fontsize=10.5, fontweight="bold")
     ax1.tick_params(labelleft=False)  # Completely eliminates collision with left subplot!
-    ax1.set_title("(b) Proposed AS-ViT (Orthogonal Cleavage)\n" +
+    ax1.set_title("(b) Proposed PRISM (Orthogonal Cleavage)\n" +
                   r"$\mathrm{Clash\ Ratio} = 0.0\% \quad [\min \mathcal{C}_{ij} = +0.08, \mathrm{\ mean\ } \overline{\mathcal{C}} = +0.14]$",
                   fontsize=10.5, pad=12, fontweight="bold")
 
@@ -506,7 +506,7 @@ def generate_fig4_convergence_curves(save_dir: str):
       4. CAGrad (NeurIPS 2021)
       5. Static MoE-ViT (E=4)
       6. Static MoE-ViT (E=8)
-      7. Proposed AS-ViT (Ours)
+      7. Proposed PRISM (Ours)
     Guarantees:
       - Legends placed strictly BELOW the x-axis with tight professional spacing.
       - Full metric trajectories reflecting Table I values.
@@ -540,7 +540,7 @@ def generate_fig4_convergence_curves(save_dir: str):
     axes[0].plot(epochs, loss_cagrad, label="CAGrad (NeurIPS 2021)", color="#7c3aed", linestyle="-", lw=1.8)
     axes[0].plot(epochs, loss_moe4, label=r"Static MoE-ViT ($E=4$)", color="#0284c7", linestyle="-.", lw=1.8)
     axes[0].plot(epochs, loss_moe8, label=r"Static MoE-ViT ($E=8$)", color="#1d4ed8", linestyle="-", lw=2.0)
-    axes[0].plot(epochs, loss_as_vit, label="Proposed AS-ViT (Ours)", color="#059669", linestyle="-", lw=3.0)
+    axes[0].plot(epochs, loss_as_vit, label="Proposed PRISM (Ours)", color="#059669", linestyle="-", lw=3.0)
 
     axes[0].set_xlabel("Training Epochs", fontsize=11)
     axes[0].set_ylabel(r"Total Multi-Task Loss $\mathcal{L}_{\mathrm{total}}$", fontsize=11)
@@ -555,7 +555,7 @@ def generate_fig4_convergence_curves(save_dir: str):
     axes[1].plot(epochs, gain_cagrad, label=r"CAGrad ($-0.38\%$)", color="#7c3aed", linestyle="-", lw=1.8)
     axes[1].plot(epochs, gain_moe4, label=r"Static MoE-ViT ($E=4, +1.82\%$)", color="#0284c7", linestyle="-.", lw=1.8)
     axes[1].plot(epochs, gain_moe8, label=r"Static MoE-ViT ($E=8, +2.45\%$)", color="#1d4ed8", linestyle="-", lw=2.0)
-    axes[1].plot(epochs, gain_as_vit, label=r"Proposed AS-ViT (Ours, $\mathbf{+5.84\%}$)", color="#059669", linestyle="-", lw=3.0)
+    axes[1].plot(epochs, gain_as_vit, label=r"Proposed PRISM (Ours, $\mathbf{+5.84\%}$)", color="#059669", linestyle="-", lw=3.0)
 
     axes[1].axhline(0, color="#94a3b8", linestyle=":", lw=1.2)
     axes[1].set_xlabel("Training Epochs", fontsize=11)
