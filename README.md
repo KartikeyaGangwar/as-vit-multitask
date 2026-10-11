@@ -58,7 +58,7 @@ This repository represents the Foundational AI & Computer Vision culmination of 
   ┌────────────────────────────────┼────────────────────────────────┐
   ▼                                ▼                                ▼
 [ACT I: STATIC PHYSICAL]    [ACT II: DYNAMIC AMR]        [ACT III: FOUNDATIONAL CV]
-Null-Space PINN             AS-PINN                      PRISM (This Repo) 
+Null-Space PINN             ATLAS                        PRISM (This Repo) 
 (Algebraic Direct-Sum)      (Autonomous PDE AMR)         (Feature-Space MoE)
 [null-space-pinn]           [atlas-neural-amr]           [prism-multitask-vision]
 DOI: 10.5281/zenodo.22132799 DOI: 10.5281/zenodo.22822521 DOI: 10.5281/zenodo.22974130
@@ -70,7 +70,7 @@ DOI: 10.5281/zenodo.22132799 DOI: 10.5281/zenodo.22822521 DOI: 10.5281/zenodo.22
    *Repo:* [https://github.com/KartikeyaGangwar/null-space-pinn](https://github.com/KartikeyaGangwar/null-space-pinn) | *DOI:* [10.5281/zenodo.22132799](https://doi.org/10.5281/zenodo.22132799)
 
 2. **Act II: Autonomous Dynamic Parameter AMR (`atlas-neural-amr`):**  
-   *Title:* *"Adaptive $N$-Subspace Physics-Informed Neural Networks: Autonomous Parameter-Space AMR via Vectorized Gradient Conflict Profiling"*  
+   *Title:* *"ATLAS: Adaptive Tiling of Localized Anisotropic Subspaces for Autonomous Parameter-Space AMR via Vectorized Gradient Conflict Profiling"*  
    *Focus:* Generalizes static partitioning into dynamic, autonomous parameter-space Adaptive Mesh Refinement (AMR). Uses vectorized Gram conflict matrices (`torch.func.vmap`) to trigger autonomous subspace fission with exact zero-disruption solution invariance ($\|u^{(N+1)} - u^{(N)}\| \equiv 0$) across 9 canonical PDEs.  
    *Repo:* [https://github.com/KartikeyaGangwar/atlas-neural-amr](https://github.com/KartikeyaGangwar/atlas-neural-amr) | *DOI:* [10.5281/zenodo.22822521](https://doi.org/10.5281/zenodo.22822521)
 
@@ -82,9 +82,9 @@ DOI: 10.5281/zenodo.22132799 DOI: 10.5281/zenodo.22822521 DOI: 10.5281/zenodo.22
 
 ## 🔬 The SciML-to-Vision Mathematical Bridge
 
-PRISM represents the direct theoretical and algorithmic translation of **Adaptive $N$-Subspace Physics-Informed Neural Networks (AS-PINN)** into dense multi-task computer vision:
+PRISM represents the direct theoretical and algorithmic translation of **ATLAS: Adaptive Tiling of Localized Anisotropic Subspaces (ASNN Framework)** into dense multi-task computer vision:
 
-| Scientific Machine Learning (`AS-PINN`) | Multi-Task Computer Vision (`PRISM`) |
+| Scientific Machine Learning (`ATLAS` / `AS-PINN`) | Multi-Task Computer Vision (`PRISM`) |
 | :--- | :--- |
 | **Physical Coordinate Domain:** $\mathbf{x} = (x, y, t) \in \Omega$ | **Latent Token Manifold:** $\mathbf{z} \in \mathbb{R}^D$ inside Transformer blocks |
 | **PDE Residual Conflict:** $\mathcal{G}_{ij} = \cos \angle(\nabla_\Theta r_i^2, \nabla_\Theta r_j^2)$ | **Multi-Task Jacobian Alignment:** $\mathcal{G}_{ij} = \cos \angle(\mathbf{g}_i, \mathbf{g}_j)$ |
