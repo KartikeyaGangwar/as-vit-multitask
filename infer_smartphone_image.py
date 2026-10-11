@@ -1,7 +1,7 @@
 """
 ================================================================================
-PRISM In-the-Wild Smartphone Inference & Visual Showcase
-Run dense multi-task visual perception on ANY custom photo taken from your phone!
+PRISM In-the-Wild Smartphone Inference & Qualitative Evaluation
+Evaluates dense multi-task visual perception on unconstrained photographs.
 
 Outputs 5-panel visualization:
   1. Input Smartphone RGB Photo
@@ -113,7 +113,7 @@ def run_smartphone_inference(image_path: str, output_path: str = "smartphone_mul
         
     pou_map = np.array(Image.fromarray((pou_rgb * 255).astype(np.uint8)).resize(target_size, Image.BILINEAR)) / 255.0
 
-    # 4. Plot 5-Panel Showcase
+    # 4. Plot 5-Panel Qualitative Evaluation
     fig, axes = plt.subplots(1, 5, figsize=(20, 4.2), dpi=300)
     plt.subplots_adjust(wspace=0.04)
 

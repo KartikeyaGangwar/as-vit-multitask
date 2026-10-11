@@ -185,7 +185,7 @@ class PRISM(nn.Module):
     """
     PRISM: Partition-of-Unity Routing for Isolated Subspace Manifolds.
     
-    Foundational Multi-Task Architecture:
+    Multi-Task Architecture:
       - PatchEmbed: Maps [B, 3, H, W] -> [B, M, D].
       - Positional Embedding: Learnable 1D position embeddings.
       - Encoder: Stack of L PRISMBlock layers.

@@ -1,11 +1,11 @@
 """
 ================================================================================
-Generate Head-to-Head Comparative Baseline "VERSUS" Visual Panel
+Generate Comparative Baseline Visual Panel
 
 Compares dense multi-task visual predictions side-by-side:
-  [Input RGB | Ground Truth | Monolithic MT-ViT | Static MoE-8 | Proposed PRISM]
-across Semantic Segmentation, Metric Depth, and 3D Surface Normals on authentic
-real indoor scenes from the official NYUv2 test split.
+  [Input RGB | Ground Truth | Monolithic MT-ViT | Static MoE-8 | PRISM]
+across Semantic Segmentation, Metric Depth, and 3D Surface Normals on
+indoor test scenes from the official NYUv2 test split.
 
 Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 ================================================================================
@@ -26,7 +26,7 @@ from benchmarks.generate_real_nyuv2_qualitative_panel import colormap_normals, c
 
 
 def generate_baseline_versus_panel():
-    print("[*] Generating Authentic Baseline 'VERSUS' Qualitative Panel...")
+    print("[*] Generating Comparative Baseline Qualitative Panel...")
     plt.rcParams.update({
         "font.family": "serif",
         "font.serif": ["Times New Roman", "DejaVu Serif", "STIXGeneral", "serif"],

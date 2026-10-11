@@ -1,9 +1,9 @@
 """
 ================================================================================
-Master Publication-Grade Visual Diagnostics and Plot Generator for PRISM
+Visual Diagnostics and Plot Generator for PRISM
 
 Generates:
-  1. fig1_as_vit_workflow_pou.png      - Flagship Architecture, Vectorized Gram Profiler,
+  1. fig1_as_vit_workflow_pou.png      - PRISM Architecture, Vectorized Gram Profiler,
                                          Continuous Partition of Unity (PoU) Router & Real Visual Decoders.
   2. fig2_gram_matrix_heatmaps.png     - Inter-Task Gram Cosine Conflict Spectrum (Before vs After Cleavage).
                                          Zero text overlaps, dedicated colorbar axis, full contrast annotations.
@@ -91,11 +91,11 @@ def draw_arrow(ax, p1, p2, color="#334155", lw=1.8, style="->", zorder=3):
 
 
 # ==============================================================================
-# FIGURE 1: Flagship PRISM Architecture & Workflow Diagram (with Real Visuals)
+# FIGURE 1: PRISM Architecture & Workflow Diagram
 # ==============================================================================
 def generate_fig1_architecture_diagram(save_dir: str):
-    """Generates the flagship publication architecture diagram."""
-    print("  [+] Generating Figure 1: Flagship PRISM Architecture & Workflow Diagram...")
+    """Generates the PRISM architecture diagram."""
+    print("  [+] Generating Figure 1: PRISM Architecture & Workflow Diagram...")
     fig, ax = plt.subplots(figsize=(16, 7.8), dpi=300)
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)

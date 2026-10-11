@@ -1,8 +1,8 @@
 """
 ================================================================================
-Generate Authentic Qualitative Prediction Showcase on Real NYUv2 Benchmark
+Qualitative Prediction Visualizations on NYUv2 Benchmark
 
-Uses 100% genuine real indoor RGB-D frames from the official NYUv2 test split:
+Uses indoor RGB-D frames from the official NYUv2 test split:
   - Real Kinect RGB captures
   - Official 13-class semantic segmentation labels (Eigen test split)
   - Official metric depth maps
@@ -62,7 +62,7 @@ def colormap_segmentation(seg: np.ndarray, num_classes: int = 14) -> np.ndarray:
 
 
 def generate_real_nyuv2_visual_showcase():
-    print("[*] Generating authentic real NYUv2 qualitative showcase...")
+    print("[*] Generating NYUv2 qualitative visualizations...")
     plt.rcParams.update({
         "font.family": "serif",
         "font.serif": ["Times New Roman", "DejaVu Serif", "STIXGeneral", "serif"],
@@ -180,7 +180,7 @@ def generate_real_nyuv2_visual_showcase():
     out_path = "manuscript/fig6_real_nyuv2_visual_predictions.png"
     plt.savefig(out_path, bbox_inches="tight", dpi=300)
     plt.close()
-    print(f"[+] Authentic Real NYUv2 Qualitative Visual Showcase saved to: {out_path}")
+    print(f"[+] NYUv2 qualitative visual panel saved to: {out_path}")
 
     import shutil
     shutil.copyfile(out_path, "assets/fig6_real_nyuv2_visual_predictions.png")
