@@ -1,5 +1,5 @@
 """
-Real-World NYUv2 Multi-Task Dataset Pipeline (IEEE TPAMI Standard).
+Real-World NYUv2 Multi-Task Dataset Pipeline.
 Implements:
   1. HDF5 / MAT parser for official `nyu_depth_v2_labeled.mat` (1,449 frames).
   2. Point-cloud camera intrinsic back-projection for 3D Surface Normal fields on S^2.

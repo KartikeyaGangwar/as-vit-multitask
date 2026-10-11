@@ -1,7 +1,7 @@
 r"""
 ================================================================================
 PRISM: Partition-of-Unity Routing for Isolated Subspace Manifolds
-Official PyTorch Implementation for IEEE TPAMI / CVPR.
+Official PyTorch Implementation.
 
 Architecture:
   - Token-level continuous Partition of Unity (PoU) gating

@@ -1,6 +1,6 @@
 """
 ================================================================================
-Multi-Dimensional Ablation Suite on NYUv2 Benchmark (IEEE TPAMI Standard)
+Multi-Dimensional Ablation Suite on NYUv2 Benchmark
 Ablates:
   1. Routing Mechanism: Continuous PoU Gating vs Discrete Top-1 vs Discrete Top-2 vs Fixed Task
   2. Directional Conflict Threshold tau_conflict in [0.15, 0.20, 0.35]
@@ -31,7 +31,7 @@ def compute_delta_m(seg_miou, depth_abs, depth_rmse, norm_mean, norm_med, single
 
 
 def run_ablation_suite():
-    print("[*] Running Comprehensive Multi-Dimensional Ablation Suite for IEEE TPAMI...")
+    print("[*] Running Comprehensive Multi-Dimensional Ablation Suite...")
     
     single_baseline = {
         "seg_miou": 51.20,

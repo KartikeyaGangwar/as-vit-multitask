@@ -1,7 +1,6 @@
 """
 ================================================================================
 Generate Authentic Qualitative Prediction Showcase on Real NYUv2 Benchmark
-For IEEE TPAMI Submission.
 
 Uses 100% genuine real indoor RGB-D frames from the official NYUv2 test split:
   - Real Kinect RGB captures
@@ -63,7 +62,7 @@ def colormap_segmentation(seg: np.ndarray, num_classes: int = 14) -> np.ndarray:
 
 
 def generate_real_nyuv2_visual_showcase():
-    print("[*] Generating authentic real NYUv2 qualitative showcase for IEEE TPAMI...")
+    print("[*] Generating authentic real NYUv2 qualitative showcase...")
     plt.rcParams.update({
         "font.family": "serif",
         "font.serif": ["Times New Roman", "DejaVu Serif", "STIXGeneral", "serif"],

@@ -1,7 +1,7 @@
 """
 ================================================================================
 Generate Appendix B: Zero-Shot In-the-Wild Generalization & Smartphone Panel
-Target: CVPR / ICLR / NeurIPS Supplementary Material & IEEE TPAMI Appendix
+Evaluation of In-the-Wild Generalization Capability.
 
 Processes uncalibrated consumer smartphone images (e.g. rural village scenes,
 tractors, agricultural fields, campus buildings, automobiles) and produces

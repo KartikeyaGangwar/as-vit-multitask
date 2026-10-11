@@ -1,7 +1,7 @@
 """
 ================================================================================
 Architectural Specialization Diagnostics & Router Utilization Analysis
-(IEEE TPAMI Standard, Addressing Reviewer Findings 4 & 7)
+(Comprehensive Analysis: Router Utilization, Entropy, and Topological Specialization)
 
 Measures and profiles across all transformer blocks l in {1, ..., L}:
   1. Discovered Layer-Wise Subspace Topology {N_l^*}

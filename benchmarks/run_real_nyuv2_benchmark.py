@@ -1,6 +1,6 @@
 """
 ================================================================================
-Real-World NYUv2 Master Benchmark Suite (IEEE TPAMI Standard).
+Real-World NYUv2 Master Benchmark Suite.
 Trains and evaluates all 7 multi-task architectures on official 795 train / 654 test RGB-D frames.
 
 Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)

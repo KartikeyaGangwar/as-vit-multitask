@@ -1,7 +1,6 @@
 """
 ================================================================================
 Generate Head-to-Head Comparative Baseline "VERSUS" Visual Panel
-For IEEE TPAMI Submission.
 
 Compares dense multi-task visual predictions side-by-side:
   [Input RGB | Ground Truth | Monolithic MT-ViT | Static MoE-8 | Proposed PRISM]
@@ -27,7 +26,7 @@ from benchmarks.generate_real_nyuv2_qualitative_panel import colormap_normals, c
 
 
 def generate_baseline_versus_panel():
-    print("[*] Generating Authentic Baseline 'VERSUS' Qualitative Panel for IEEE TPAMI...")
+    print("[*] Generating Authentic Baseline 'VERSUS' Qualitative Panel...")
     plt.rcParams.update({
         "font.family": "serif",
         "font.serif": ["Times New Roman", "DejaVu Serif", "STIXGeneral", "serif"],

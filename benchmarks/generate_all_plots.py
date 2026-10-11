@@ -1,7 +1,6 @@
 """
 ================================================================================
 Master Publication-Grade Visual Diagnostics and Plot Generator for PRISM
-Target: IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)
 
 Generates:
   1. fig1_as_vit_workflow_pou.png      - Flagship Architecture, Vectorized Gram Profiler,
@@ -95,7 +94,7 @@ def draw_arrow(ax, p1, p2, color="#334155", lw=1.8, style="->", zorder=3):
 # FIGURE 1: Flagship PRISM Architecture & Workflow Diagram (with Real Visuals)
 # ==============================================================================
 def generate_fig1_architecture_diagram(save_dir: str):
-    """Generates the flagship publication architecture diagram for IEEE TPAMI."""
+    """Generates the flagship publication architecture diagram."""
     print("  [+] Generating Figure 1: Flagship PRISM Architecture & Workflow Diagram...")
     fig, ax = plt.subplots(figsize=(16, 7.8), dpi=300)
     ax.set_xlim(0, 1)

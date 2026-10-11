@@ -4,17 +4,14 @@
 [![CUDA](https://img.shields.io/badge/CUDA-12.x-76b900.svg?logo=nvidia&logoColor=white)](https://developer.nvidia.com/cuda-toolkit)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22974130.svg)](https://doi.org/10.5281/zenodo.22974130)
 [![Preprint: Open Access](https://img.shields.io/badge/Preprint-Zenodo%20(Open%20Access)-blue.svg)](https://doi.org/10.5281/zenodo.22974130)
-[![Target](https://img.shields.io/badge/Target-IEEE%20TPAMI%20%2F%20CVPR-blue.svg)](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0009--1973--7532-a6ce39.svg?logo=orcid&logoColor=white)](https://orcid.org/0009-0009-1973-7532)
-[![Paper](https://img.shields.io/badge/Paper-IEEE%20TPAMI%20(Under%20Review)-brightgreen.svg)](#-citation)
 
 > **Author:** **Kartikeya Gangwar**  
 > **Affiliation:** Department of Mathematics, University of Delhi, Delhi, 110007, India  
 > **Contact:** `kartikeyagangwar@proton.me`  
 > **ORCID:** [`0009-0009-1973-7532`](https://orcid.org/0009-0009-1973-7532)  
-> **Open Access Preprint:** [**10.5281/zenodo.22974130**](https://doi.org/10.5281/zenodo.22974130) *(Full 15-page manuscript & appendices unpaywalled)*  
-> **Target Venue:** *IEEE Transactions on Pattern Analysis and Machine Intelligence (IEEE TPAMI)* / *IEEE/CVF CVPR*
+> **Open Access Preprint:** [**10.5281/zenodo.22974130**](https://doi.org/10.5281/zenodo.22974130) *(Full 15-page manuscript & appendices unpaywalled)*
 
 ---
 
@@ -80,7 +77,7 @@ DOI: 10.5281/zenodo.22132799 DOI: 10.5281/zenodo.22822521 DOI: 10.5281/zenodo.22
 3. **Act III: Foundational Vision Transformers & MoE (`prism-multitask-vision`):**  
    *Title:* *"PRISM: Partition-of-Unity Routing for Isolated Subspace Manifolds in Dense Multi-Task Vision"*  
    *Focus:* Transcends physical PDE space into the latent token manifold of Vision Transformers. Eliminates negative transfer in multi-task perception (segmentation, depth, surface normals) by continuously tracking inter-task Gram matrix eigenvalues ($\lambda_{\min}(\mathcal{G}) < -\tau_{\text{conflict}}$) and dynamically spawning expert subspaces via Feature-Conditioned Partition of Unity (PoU) gating.  
-   *Repo:* [https://github.com/KartikeyaGangwar/prism-multitask-vision](https://github.com/KartikeyaGangwar/prism-multitask-vision) | *Preprint DOI:* [10.5281/zenodo.22974130](https://doi.org/10.5281/zenodo.22974130) | *Target Venue:* IEEE TPAMI / CVPR
+   *Repo:* [https://github.com/KartikeyaGangwar/prism-multitask-vision](https://github.com/KartikeyaGangwar/prism-multitask-vision) | *Preprint DOI:* [10.5281/zenodo.22974130](https://doi.org/10.5281/zenodo.22974130)
 
 
 ## 🔬 The SciML-to-Vision Mathematical Bridge
@@ -212,7 +209,7 @@ AS_ViT_MultiTask_Vision/
 │   ├── as_vit_nyuv2_stage2.yaml   # Stage 2 clean production retraining configuration
 │   └── baselines_nyuv2.yaml       # Standard baseline configuration
 ├── notebooks/
-│   └── AS_ViT_Master_Kaggle_Colab_TPAMI.ipynb # 1-Click Cloud GPU deployment notebook
+│   └── PRISM_Master_Kaggle_Colab.ipynb # 1-Click Cloud GPU deployment notebook
 ├── assets/
 │   └── fig1 - fig5 PNGs           # 300 DPI high-resolution publication figures
 ├── eval_multitask.py              # O(1) memory-optimized multi-task streaming evaluator
@@ -267,7 +264,7 @@ python benchmarks/generate_real_visual_predictions.py
 
 For large-scale training with **`ViT-Base` (`embed_dim=768`, `depth=12`, 100–150 epochs)** on high-memory cloud accelerators (NVIDIA A100, V100, or 2x T4 16GB):
 
-1. Open [`notebooks/AS_ViT_Master_Kaggle_Colab_TPAMI.ipynb`](notebooks/AS_ViT_Master_Kaggle_Colab_TPAMI.ipynb).
+1. Open [`notebooks/PRISM_Master_Kaggle_Colab.ipynb`](notebooks/PRISM_Master_Kaggle_Colab.ipynb).
 2. Upload the notebook to **Kaggle** or **Google Colab**.
 3. Enable GPU Accelerator (**T4 x 2** or **A100**).
 4. Run all cells to automatically execute full multi-task benchmarking and export camera-ready results!
@@ -291,21 +288,13 @@ All experimental results, vectorized Jacobian profiling kernels, and multi-task 
 If you find this work, codebase, or mathematical formulation useful in your research, please cite:
 
 ```bibtex
-@article{gangwar2026prism_zenodo,
+@article{gangwar2026prism,
   title={PRISM: Partition-of-Unity Routing for Isolated Subspace Manifolds in Dense Multi-Task Vision},
   author={Gangwar, Kartikeya},
   journal={Zenodo Open-Access Preprint},
   year={2026},
   doi={10.5281/zenodo.22974130},
   url={https://doi.org/10.5281/zenodo.22974130}
-}
-
-@article{gangwar2026prism_tpami,
-  title={PRISM: Partition-of-Unity Routing for Isolated Subspace Manifolds in Dense Multi-Task Vision},
-  author={Gangwar, Kartikeya},
-  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)},
-  year={2026},
-  note={Under review. Correspondence: kartikeyagangwar@proton.me}
 }
 ```
 

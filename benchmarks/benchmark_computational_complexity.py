@@ -1,6 +1,6 @@
 """
 ================================================================================
-Comprehensive Computational Complexity & Efficiency Profiler (IEEE TPAMI Standard)
+Comprehensive Computational Complexity & Efficiency Profiler
 Profiles:
   1. Total Parameters (M)
   2. Active Parameters per Token (M)

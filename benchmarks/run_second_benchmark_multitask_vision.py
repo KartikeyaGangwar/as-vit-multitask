@@ -1,7 +1,7 @@
 """
 ================================================================================
 Second Multi-Task Vision Benchmark: Multi-Task Visual Recognition
-(IEEE TPAMI Standard, Proving Cross-Domain Multi-Task Generalization)
+(Proving Cross-Domain Multi-Task Generalization)
 
 Canonical Multi-Task Vision Benchmark evaluating:
   - Task 1: Primary Spatial Visual Classification (Top-Left visual object, 10 classes)
