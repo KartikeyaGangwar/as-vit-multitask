@@ -63,7 +63,7 @@ This repository represents the Foundational AI & Computer Vision culmination of 
 [ACT I: STATIC PHYSICAL]    [ACT II: DYNAMIC AMR]        [ACT III: FOUNDATIONAL CV]
 Null-Space PINN             AS-PINN                      PRISM (This Repo) 
 (Algebraic Direct-Sum)      (Autonomous PDE AMR)         (Feature-Space MoE)
-[null-space-pinn]           [as-pinn]                    [as-vit-multitask]
+[null-space-pinn]           [atlas-neural-amr]           [prism-multitask-vision]
 DOI: 10.5281/zenodo.22132799 DOI: 10.5281/zenodo.22822521 DOI: 10.5281/zenodo.22974130
 ```
 
@@ -72,15 +72,15 @@ DOI: 10.5281/zenodo.22132799 DOI: 10.5281/zenodo.22822521 DOI: 10.5281/zenodo.22
    *Focus:* Proves structural gradient orthogonality ($\langle \nabla\mathcal{L}_{\mathrm{if}}, \nabla\mathcal{L}_{\mathrm{des}} \rangle \equiv 0$) on static 2D boundaries via $C^2$ Quintic Hermite operators and frozen orthogonal projection bases ($\Theta = \Theta_0 \oplus \Theta_1$, $\mathcal{W}_0 \mathcal{W}_1^T = \mathbf{0}$).  
    *Repo:* [https://github.com/KartikeyaGangwar/null-space-pinn](https://github.com/KartikeyaGangwar/null-space-pinn) | *DOI:* [10.5281/zenodo.22132799](https://doi.org/10.5281/zenodo.22132799)
 
-2. **Act II: Autonomous Dynamic Parameter AMR (`as-pinn`):**  
+2. **Act II: Autonomous Dynamic Parameter AMR (`atlas-neural-amr`):**  
    *Title:* *"Adaptive $N$-Subspace Physics-Informed Neural Networks: Autonomous Parameter-Space AMR via Vectorized Gradient Conflict Profiling"*  
    *Focus:* Generalizes static partitioning into dynamic, autonomous parameter-space Adaptive Mesh Refinement (AMR). Uses vectorized Gram conflict matrices (`torch.func.vmap`) to trigger autonomous subspace fission with exact zero-disruption solution invariance ($\|u^{(N+1)} - u^{(N)}\| \equiv 0$) across 9 canonical PDEs.  
-   *Repo:* [https://github.com/KartikeyaGangwar/as-pinn](https://github.com/KartikeyaGangwar/as-pinn) | *DOI:* [10.5281/zenodo.22822521](https://doi.org/10.5281/zenodo.22822521)
+   *Repo:* [https://github.com/KartikeyaGangwar/atlas-neural-amr](https://github.com/KartikeyaGangwar/atlas-neural-amr) | *DOI:* [10.5281/zenodo.22822521](https://doi.org/10.5281/zenodo.22822521)
 
-3. **Act III: Foundational Vision Transformers & MoE (`as-vit-multitask`):**  
+3. **Act III: Foundational Vision Transformers & MoE (`prism-multitask-vision`):**  
    *Title:* *"PRISM: Partition-of-Unity Routing for Isolated Subspace Manifolds in Dense Multi-Task Vision"*  
    *Focus:* Transcends physical PDE space into the latent token manifold of Vision Transformers. Eliminates negative transfer in multi-task perception (segmentation, depth, surface normals) by continuously tracking inter-task Gram matrix eigenvalues ($\lambda_{\min}(\mathcal{G}) < -\tau_{\text{conflict}}$) and dynamically spawning expert subspaces via Feature-Conditioned Partition of Unity (PoU) gating.  
-   *Repo:* [https://github.com/KartikeyaGangwar/as-vit-multitask](https://github.com/KartikeyaGangwar/as-vit-multitask) | *Preprint DOI:* [10.5281/zenodo.22974130](https://doi.org/10.5281/zenodo.22974130) | *Target Venue:* IEEE TPAMI / CVPR
+   *Repo:* [https://github.com/KartikeyaGangwar/prism-multitask-vision](https://github.com/KartikeyaGangwar/prism-multitask-vision) | *Preprint DOI:* [10.5281/zenodo.22974130](https://doi.org/10.5281/zenodo.22974130) | *Target Venue:* IEEE TPAMI / CVPR
 
 
 ## 🔬 The SciML-to-Vision Mathematical Bridge
@@ -227,8 +227,8 @@ AS_ViT_MultiTask_Vision/
 
 ### 1. Clone & Set Up Environment
 ```bash
-git clone https://github.com/KartikeyaGangwar/as-vit-multitask.git
-cd as-vit-multitask
+git clone https://github.com/KartikeyaGangwar/prism-multitask-vision.git
+cd prism-multitask-vision
 pip install -r requirements.txt
 ```
 
