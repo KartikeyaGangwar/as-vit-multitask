@@ -1,14 +1,14 @@
 """
 ================================================================================
-AS-ViT In-the-Wild Smartphone Inference & Visual Showcase
+PRISM In-the-Wild Smartphone Inference & Visual Showcase
 Run dense multi-task visual perception on ANY custom photo taken from your phone!
 
 Outputs 5-panel visualization:
   1. Input Smartphone RGB Photo
-  2. AS-ViT 13-Class Semantic Segmentation
-  3. AS-ViT Monocular Metric Depth Map (Meters)
-  4. AS-ViT 3D Surface Normal Vector Field (S^2 unit sphere colormap)
-  5. AS-ViT Discovered Partition of Unity (PoU) Expert Allocation Map
+  2. PRISM 13-Class Semantic Segmentation
+  3. PRISM Monocular Metric Depth Map (Meters)
+  4. PRISM 3D Surface Normal Vector Field (S^2 unit sphere colormap)
+  5. PRISM Discovered Partition of Unity (PoU) Expert Allocation Map
 
 Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 ================================================================================
@@ -23,7 +23,7 @@ import torch
 import torch.nn.functional as F
 
 sys.path.insert(0, os.path.abspath("."))
-from models.as_vit import ASViT
+from models.as_vit import PRISM
 
 
 def colormap_normals(normals: np.ndarray) -> np.ndarray:
@@ -76,8 +76,8 @@ def run_smartphone_inference(image_path: str, output_path: str = "smartphone_mul
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     img_tensor = img_tensor.to(device)
 
-    # 2. Instantiate AS-ViT with discovered topology
-    model = ASViT(
+    # 2. Instantiate PRISM with discovered topology
+    model = PRISM(
         img_size=224,
         embed_dim=192,
         depth=4,
@@ -121,14 +121,14 @@ def run_smartphone_inference(image_path: str, output_path: str = "smartphone_mul
     axes[0].set_title("Input Smartphone Photo", fontsize=11, fontweight="bold", pad=8)
     
     axes[1].imshow(colormap_segmentation(pred_seg))
-    axes[1].set_title("AS-ViT Segmentation", fontsize=11, fontweight="bold", pad=8)
+    axes[1].set_title("PRISM Segmentation", fontsize=11, fontweight="bold", pad=8)
     
     d_min, d_max = float(pred_depth.min()), float(pred_depth.max())
     axes[2].imshow(pred_depth, cmap="plasma", vmin=d_min, vmax=d_max)
-    axes[2].set_title("AS-ViT Metric Depth (m)", fontsize=11, fontweight="bold", pad=8)
+    axes[2].set_title("PRISM Metric Depth (m)", fontsize=11, fontweight="bold", pad=8)
     
     axes[3].imshow(colormap_normals(pred_normals))
-    axes[3].set_title("AS-ViT 3D Surface Normals", fontsize=11, fontweight="bold", pad=8)
+    axes[3].set_title("PRISM 3D Surface Normals", fontsize=11, fontweight="bold", pad=8)
     
     axes[4].imshow(pou_map)
     axes[4].set_title("Discovered PoU Allocation", fontsize=11, fontweight="bold", pad=8)
@@ -143,7 +143,7 @@ def run_smartphone_inference(image_path: str, output_path: str = "smartphone_mul
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="AS-ViT In-the-Wild Smartphone Inference")
+    parser = argparse.ArgumentParser(description="PRISM In-the-Wild Smartphone Inference")
     parser.add_argument("--image", type=str, default="data/nyuv2_real_samples/00001.h5", help="Path to input smartphone image (.jpg/.png)")
     parser.add_argument("--output", type=str, default="smartphone_multitask_prediction.png", help="Path to save output visualization")
     args = parser.parse_args()

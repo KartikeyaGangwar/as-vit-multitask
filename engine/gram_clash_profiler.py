@@ -1,6 +1,6 @@
 """
 ================================================================================
-Vectorized Inter-Task Gram Matrix Conflict Profiler for AS-ViT.
+Vectorized Inter-Task Gram Matrix Conflict Profiler for PRISM.
 Evaluates empirical Gram alignment matrix G_k and spectral eigenvalues via vmap.
 
 Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)

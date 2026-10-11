@@ -1,12 +1,12 @@
-# AS-ViT: Architecture & System Design Specification
+# PRISM: Architecture & System Design Specification
 
-This document provides the formal architectural blueprint and computational graph specification for the **Adaptive Subspace Vision Transformer (AS-ViT)** framework.
+This document provides the formal architectural blueprint and computational graph specification for the **PRISM (PRISM)** framework.
 
 ---
 
 ## 🏗️ 1. Multi-Task Vision Transformer Pipeline
 
-Given an input RGB scene $\mathbf{I} \in \mathbb{R}^{H \times W \times 3}$, AS-ViT tokenizes the image into non-overlapping spatial patches of resolution $P \times P$ (typically $16 \times 16$):
+Given an input RGB scene $\mathbf{I} \in \mathbb{R}^{H \times W \times 3}$, PRISM tokenizes the image into non-overlapping spatial patches of resolution $P \times P$ (typically $16 \times 16$):
 
 $$\mathbf{x}_p = \text{Flatten}(\mathbf{I}_{i, j}) \in \mathbb{R}^{3 P^2}, \quad p \in \{1, \dots, M\}, \quad M = \frac{HW}{P^2}.$$
 
@@ -36,7 +36,7 @@ where:
 
 ## 🌐 3. Feature-Space Partition of Unity (PoU) Gating
 
-Unlike discrete Mixture-of-Experts (MoE) routers which select experts via non-differentiable $\text{Top-}k(\text{Softmax}(\mathbf{z} \mathbf{W}_g))$ routing, AS-ViT enforces a continuous **Partition of Unity (PoU)** over the latent representation manifold:
+Unlike discrete Mixture-of-Experts (MoE) routers which select experts via non-differentiable $\text{Top-}k(\text{Softmax}(\mathbf{z} \mathbf{W}_g))$ routing, PRISM enforces a continuous **Partition of Unity (PoU)** over the latent representation manifold:
 
 $$\psi_k(\mathbf{z}) = \frac{\exp\left( - \frac{\|\mathbf{z} - \mathbf{c}_k\|_2^2}{2 \sigma_k^2 \sqrt{D} + \epsilon} \right)}{\sum_{j=1}^N \exp\left( - \frac{\|\mathbf{z} - \mathbf{c}_j\|_2^2}{2 \sigma_j^2 \sqrt{D} + \epsilon} \right)}.$$
 
@@ -50,7 +50,7 @@ $$\psi_k(\mathbf{z}) = \frac{\exp\left( - \frac{\|\mathbf{z} - \mathbf{c}_k\|_2^
 
 ## 🎯 4. Localized Coordinate Centering
 
-Prior to feeding token $\mathbf{z}$ into expert $\Phi_k$, AS-ViT transforms $\mathbf{z}$ into the **local centered frame of that subspace**:
+Prior to feeding token $\mathbf{z}$ into expert $\Phi_k$, PRISM transforms $\mathbf{z}$ into the **local centered frame of that subspace**:
 
 $$\tilde{\mathbf{z}}_k = \frac{\text{LN}(\mathbf{z}) - \mathbf{c}_k}{\sigma_k}.$$
 
@@ -76,7 +76,7 @@ where $\mathbf{W}_1 \in \mathbb{R}^{D \times 4D}$ and $\mathbf{W}_2 \in \mathbb{
 
 ## 👁️ 6. Task-Specific Dense Decoders (`task_heads.py`)
 
-To evaluate diverse vision objectives, AS-ViT routes the final transformer representations $\mathbf{Z}_L \in \mathbb{R}^{B \times M \times D}$ to three decoupled task heads:
+To evaluate diverse vision objectives, PRISM routes the final transformer representations $\mathbf{Z}_L \in \mathbb{R}^{B \times M \times D}$ to three decoupled task heads:
 
 ```
                   ┌────────────────────────────────────────┐

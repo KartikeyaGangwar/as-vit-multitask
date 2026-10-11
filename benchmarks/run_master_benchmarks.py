@@ -1,7 +1,7 @@
 """
 ================================================================================
 Master Comparative Benchmark Suite for Multi-Task Vision (NYUv2).
-Trains and evaluates all baselines (Single-Task, Monolithic, PCGrad, CAGrad, MoE-4, MoE-8, AS-ViT)
+Trains and evaluates all baselines (Single-Task, Monolithic, PCGrad, CAGrad, MoE-4, MoE-8, PRISM)
 with strict per-model GPU memory cleanup (gc.collect + torch.cuda.empty_cache) and live flushed logs.
 
 Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
@@ -26,7 +26,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 
-from models.as_vit import ASViT
+from models.as_vit import PRISM
 from benchmarks.models_baseline import SingleTaskViT, MonolithicMTViT, StaticMoEViT
 from engine.loss_functions import MultiTaskLossModule
 from engine.optimizers.pcgrad import PCGrad
@@ -284,13 +284,13 @@ class MasterBenchmarkRunner:
         moe8_vit = StaticMoEViT(num_experts=8, top_k=2, img_size=self.img_size, embed_dim=self.embed_dim, depth=self.depth, num_heads=self.num_heads)
         self._train_standard_mt_model("Static MoE-ViT (E=8)", moe8_vit, st_baselines, "adamw")
 
-        # 7. Proposed AS-ViT (Two-Stage Discover-and-Deploy)
+        # 7. Proposed PRISM (Two-Stage Discover-and-Deploy)
         print("\n" + "=" * 75, flush=True)
-        print("  [STAGE 7/7] PROPOSED AS-ViT (TWO-STAGE DISCOVER-AND-DEPLOY)", flush=True)
+        print("  [STAGE 7/7] PROPOSED PRISM (TWO-STAGE DISCOVER-AND-DEPLOY)", flush=True)
         print("=" * 75, flush=True)
         cleanup_gpu()
-        from train_as_vit import TwoStageASViTTrainer
-        as_trainer = TwoStageASViTTrainer(
+        from train_as_vit import TwoStagePRISMTrainer
+        as_trainer = TwoStagePRISMTrainer(
             embed_dim=self.embed_dim,
             depth=self.depth,
             num_heads=self.num_heads,
@@ -308,7 +308,7 @@ class MasterBenchmarkRunner:
         # Polarity corrected Delta M w.r.t single-task baselines
         evaluator = MultiTaskEvaluator(single_task_baselines=st_baselines)
         as_metrics["delta_m"] = evaluator.compute_multitask_gain(as_metrics)
-        self.results["Proposed AS-ViT (Ours)"] = as_metrics
+        self.results["Proposed PRISM (Ours)"] = as_metrics
 
         del as_trainer, as_model
         cleanup_gpu()

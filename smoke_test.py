@@ -1,6 +1,6 @@
 """
 ================================================================================
-Comprehensive End-to-End Smoke Test Suite for AS-ViT Multi-Task Vision Architecture.
+Comprehensive End-to-End Smoke Test Suite for PRISM Multi-Task Vision Architecture.
 Verifies all 6 architectural axioms, tensor shapes, and Two-Stage discovery on GPU.
 
 Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
@@ -16,6 +16,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 
+from models.prism import PRISM, PRISMBlock
 from models.as_vit import ASViT, AdaptiveSubspaceBlock
 from models.subspace_expert import SubspaceExpertMLP
 from models.task_heads import SegmentationHead, DepthHead, SurfaceNormalHead
@@ -30,7 +31,7 @@ from eval_multitask import evaluate_model, MultiTaskEvaluator
 
 def run_smoke_test():
     print("=" * 80)
-    print("           [+] AS-ViT COMPREHENSIVE END-TO-END SMOKE TEST SUITE           ")
+    print("           [+] PRISM COMPREHENSIVE END-TO-END SMOKE TEST SUITE           ")
     print("=" * 80)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"[*] Testing on Device: {device}")
@@ -38,14 +39,14 @@ def run_smoke_test():
     # =========================================================================
     # TEST 1: Forward Pass & Shape Verification
     # =========================================================================
-    print("\n--- TEST 1: AS-ViT Forward Pass & Output Shape Verification ---")
+    print("\n--- TEST 1: PRISM Forward Pass & Output Shape Verification ---")
     B, C, H, W = 4, 3, 224, 224
     embed_dim = 192
     depth = 3
     num_heads = 3
     num_classes = 13
 
-    model = ASViT(
+    model = PRISM(
         img_size=H,
         patch_size=16,
         embed_dim=embed_dim,
@@ -203,7 +204,7 @@ def run_smoke_test():
     print(f"  [PASSED] Stage 2 Production Pipeline Completed Successfully! Final Delta M = {metrics['delta_m']:+.2f}%")
 
     print("\n" + "=" * 80)
-    print("   [+] ALL 6 AS-ViT ARCHITECTURAL & ALGORITHMIC SMOKE TESTS PASSED 100%!   ")
+    print("   [+] ALL 6 PRISM ARCHITECTURAL & ALGORITHMIC SMOKE TESTS PASSED 100%!   ")
     print("=" * 80)
 
 

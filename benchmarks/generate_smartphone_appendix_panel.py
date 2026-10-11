@@ -6,7 +6,7 @@ Target: CVPR / ICLR / NeurIPS Supplementary Material & IEEE TPAMI Appendix
 Processes uncalibrated consumer smartphone images (e.g. rural village scenes,
 tractors, agricultural fields, campus buildings, automobiles) and produces
 a publication-grade multi-task prediction panel:
-  [Input Smartphone RGB | AS-ViT Segmentation | Metric Depth | 3D Normals | PoU Subspace Map]
+  [Input Smartphone RGB | PRISM Segmentation | Metric Depth | 3D Normals | PoU Subspace Map]
 
 Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 ================================================================================
@@ -244,9 +244,9 @@ def generate_smartphone_panel():
 
     col_headers = [
         "Consumer Smartphone RGB\n(Uncalibrated Capture)",
-        "AS-ViT Segmentation\n(13-Class Zero-Shot)",
-        "AS-ViT Metric Depth\n(Continuous Plasma Scale)",
-        "AS-ViT 3D Surface Normals\n(Unit Sphere $\\mathbb{S}^2$ Field)",
+        "PRISM Segmentation\n(13-Class Zero-Shot)",
+        "PRISM Metric Depth\n(Continuous Plasma Scale)",
+        "PRISM 3D Surface Normals\n(Unit Sphere $\\mathbb{S}^2$ Field)",
         "PoU Subspace Allocation\n(Geometric Specialization)"
     ]
 

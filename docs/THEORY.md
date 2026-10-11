@@ -1,6 +1,6 @@
-# AS-ViT: Mathematical Theory & Convergence Proofs
+# PRISM: Mathematical Theory & Convergence Proofs
 
-This document details the mathematical proofs, spectral analysis, and theoretical foundations of the **Adaptive Subspace Vision Transformer (AS-ViT)**.
+This document details the mathematical proofs, spectral analysis, and theoretical foundations of the **PRISM (PRISM)**.
 
 ---
 
@@ -55,7 +55,7 @@ where $\tau_{\text{conflict}} \in [0.15, 0.35]$ is a safety tolerance.
 $$\lim_{\|\boldsymbol{\xi}\| \to 0} \left| \mathcal{L}(\Theta^{(N+1)}) - \mathcal{L}(\Theta^{(N)}) \right| = 0.$$
 
 ### Proof:
-In an AS-ViT block, the forward transformation prior to cleavage is:
+In an PRISM block, the forward transformation prior to cleavage is:
 
 $$\mathbf{y}^{(N)}(\mathbf{z}) = \sum_{j=1}^N \psi_j^{(N)}(\mathbf{z}) \Phi_j(\tilde{\mathbf{z}}_j; \Theta_j),$$
 
@@ -92,7 +92,7 @@ This proves that parameter cleavage induces **zero optimization disruption** and
 ## ⚡ 4. Proof of Negative Transfer Suppression (Theorem 1)
 
 ### Theorem 1 (Exponential Negative Transfer Decay in Disjoint Subspaces)
-*Let $\mathbf{g}_i = \nabla_\Theta \mathcal{L}_i$ and $\mathbf{g}_j = \nabla_\Theta \mathcal{L}_j$ be conflicting task gradients ($\langle \mathbf{g}_i, \mathbf{g}_j \rangle < 0$) in a monolithic parameter space $\Theta$. Under AS-ViT with cleaved parameter subspaces $\Theta_1 \cap \Theta_2 = \emptyset$ modulated by partition functions $\psi_1(\mathbf{z}), \psi_2(\mathbf{z})$, the aggregate parameter inner product satisfies:*
+*Let $\mathbf{g}_i = \nabla_\Theta \mathcal{L}_i$ and $\mathbf{g}_j = \nabla_\Theta \mathcal{L}_j$ be conflicting task gradients ($\langle \mathbf{g}_i, \mathbf{g}_j \rangle < 0$) in a monolithic parameter space $\Theta$. Under PRISM with cleaved parameter subspaces $\Theta_1 \cap \Theta_2 = \emptyset$ modulated by partition functions $\psi_1(\mathbf{z}), \psi_2(\mathbf{z})$, the aggregate parameter inner product satisfies:*
 
 $$\langle \nabla_{\Theta_{\text{total}}} \mathcal{L}_i, \nabla_{\Theta_{\text{total}}} \mathcal{L}_j \rangle \ge - \mathcal{O}\left( \exp\left( -\frac{\|\mathbf{c}_1 - \mathbf{c}_2\|_2^2}{2\sigma^2} \right) \right).$$
 

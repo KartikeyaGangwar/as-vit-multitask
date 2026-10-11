@@ -1,5 +1,5 @@
 """
-AS-ViT Engine Package.
+PRISM Engine Package.
 """
 from engine.gram_clash_profiler import VectorizedGramClashProfiler
 from engine.subspace_amr_manager import LatentSubspaceAMRManager

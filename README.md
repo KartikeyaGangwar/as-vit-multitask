@@ -1,4 +1,4 @@
-# AS-ViT: Adaptive Subspace Vision Transformers with Autonomous Gradient-Clash Routing for Multi-Task Learning
+# PRISM: Partition-of-Unity Routing for Isolated Subspace Manifolds in Dense Multi-Task Vision
 
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.6%2B-ee4c2c.svg?logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![CUDA](https://img.shields.io/badge/CUDA-12.x-76b900.svg?logo=nvidia&logoColor=white)](https://developer.nvidia.com/cuda-toolkit)
@@ -44,7 +44,7 @@ Existing remedies either:
 1. **Project gradients in a single shared capacity bottleneck** (e.g., PCGrad, CAGrad, Nash-MTL, FAMO)---which repeatedly strips away critical task update signals and leads to optimization stagnation, or
 2. **Deploy static Mixture-of-Experts (MoE)** with fixed heuristic counts $E \in \{4, 8, 16\}$---which suffer from discrete top-$k$ routing collapse and dead experts.
 
-**Adaptive Subspace Vision Transformer (AS-ViT)** solves this dilemma by introducing **Parameter-Space Adaptive Mesh Refinement (AMR)** into the latent representation space of Vision Transformers. AS-ViT continuously monitors vectorized inter-task Gram conflict matrices via batched automatic differentiation (`torch.func.vmap`). When persistent destructive interference is detected ($\lambda_{\min}(\mathcal{G}) < -\tau_{\text{conflict}}$), AS-ViT **autonomously cleaves and instantiates dedicated transformer parameter subspaces** centered at the latent conflict centroid $\mathbf{c}_{N+1}$, modulated by a continuous **Feature-Space Partition of Unity (PoU)** gating mechanism with provable zero-disruption loss invariance.
+**PRISM (Partition-of-Unity Routing for Isolated Subspace Manifolds)** solves this dilemma by introducing **Parameter-Space Adaptive Mesh Refinement (AMR)** into the latent representation space of Vision Transformers. PRISM continuously monitors vectorized inter-task Gram conflict matrices via batched automatic differentiation (`torch.func.vmap`). When persistent destructive interference is detected ($\lambda_{\min}(\mathcal{G}) < -\tau_{\text{conflict}}$), PRISM **autonomously cleaves and instantiates dedicated transformer parameter subspaces** centered at the latent conflict centroid $\mathbf{c}_{N+1}$, modulated by a continuous **Feature-Space Partition of Unity (PoU)** gating mechanism with provable zero-disruption loss invariance.
 
 ---
 
@@ -61,7 +61,7 @@ This repository represents the Foundational AI & Computer Vision culmination of 
   ┌────────────────────────────────┼────────────────────────────────┐
   ▼                                ▼                                ▼
 [ACT I: STATIC PHYSICAL]    [ACT II: DYNAMIC AMR]        [ACT III: FOUNDATIONAL CV]
-Null-Space PINN             AS-PINN                      AS-ViT (This Repo)
+Null-Space PINN             AS-PINN                      PRISM (This Repo) 
 (Algebraic Direct-Sum)      (Autonomous PDE AMR)         (Feature-Space MoE)
 [null-space-pinn]           [as-pinn]                    [as-vit-multitask]
 DOI: 10.5281/zenodo.22132799 DOI: 10.5281/zenodo.22822521 DOI: 10.5281/zenodo.22974130
@@ -78,16 +78,16 @@ DOI: 10.5281/zenodo.22132799 DOI: 10.5281/zenodo.22822521 DOI: 10.5281/zenodo.22
    *Repo:* [https://github.com/KartikeyaGangwar/as-pinn](https://github.com/KartikeyaGangwar/as-pinn) | *DOI:* [10.5281/zenodo.22822521](https://doi.org/10.5281/zenodo.22822521)
 
 3. **Act III: Foundational Vision Transformers & MoE (`as-vit-multitask`):**  
-   *Title:* *"AS-ViT: Adaptive Subspace Vision Transformers with Autonomous Gradient-Clash Routing for Multi-Task Learning"*  
+   *Title:* *"PRISM: Partition-of-Unity Routing for Isolated Subspace Manifolds in Dense Multi-Task Vision"*  
    *Focus:* Transcends physical PDE space into the latent token manifold of Vision Transformers. Eliminates negative transfer in multi-task perception (segmentation, depth, surface normals) by continuously tracking inter-task Gram matrix eigenvalues ($\lambda_{\min}(\mathcal{G}) < -\tau_{\text{conflict}}$) and dynamically spawning expert subspaces via Feature-Conditioned Partition of Unity (PoU) gating.  
    *Repo:* [https://github.com/KartikeyaGangwar/as-vit-multitask](https://github.com/KartikeyaGangwar/as-vit-multitask) | *Preprint DOI:* [10.5281/zenodo.22974130](https://doi.org/10.5281/zenodo.22974130) | *Target Venue:* IEEE TPAMI / CVPR
 
 
 ## 🔬 The SciML-to-Vision Mathematical Bridge
 
-AS-ViT represents the direct theoretical and algorithmic translation of **Adaptive $N$-Subspace Physics-Informed Neural Networks (AS-PINN)** into dense multi-task computer vision:
+PRISM represents the direct theoretical and algorithmic translation of **Adaptive $N$-Subspace Physics-Informed Neural Networks (AS-PINN)** into dense multi-task computer vision:
 
-| Scientific Machine Learning (`AS-PINN`) | Multi-Task Computer Vision (`AS-ViT`) |
+| Scientific Machine Learning (`AS-PINN`) | Multi-Task Computer Vision (`PRISM`) |
 | :--- | :--- |
 | **Physical Coordinate Domain:** $\mathbf{x} = (x, y, t) \in \Omega$ | **Latent Token Manifold:** $\mathbf{z} \in \mathbb{R}^D$ inside Transformer blocks |
 | **PDE Residual Conflict:** $\mathcal{G}_{ij} = \cos \angle(\nabla_\Theta r_i^2, \nabla_\Theta r_j^2)$ | **Multi-Task Jacobian Alignment:** $\mathcal{G}_{ij} = \cos \angle(\mathbf{g}_i, \mathbf{g}_j)$ |
@@ -102,7 +102,7 @@ AS-ViT represents the direct theoretical and algorithmic translation of **Adapti
 ## ⚡ Key Architectural Innovations
 
 ### 1. Vectorized Multi-Task Gram Clash Profiling (`torch.func.vmap`)
-For each active subspace $\Phi_k$, AS-ViT evaluates the exact inter-task Jacobian using vectorized automatic differentiation:
+For each active subspace $\Phi_k$, PRISM evaluates the exact inter-task Jacobian using vectorized automatic differentiation:
 
 $$\mathbf{G}_k = \begin{bmatrix} \mathbf{g}_{k, 1}^T \\ \mathbf{g}_{k, 2}^T \\ \vdots \\ \mathbf{g}_{k, T}^T \end{bmatrix} \in \mathbb{R}^{T \times P_k}, \quad \mathcal{G}_k = \tilde{\mathbf{G}}_k \tilde{\mathbf{G}}_k^T \in \mathbb{R}^{T \times T}, \quad \mathcal{G}_{k, ij} = \cos \angle(\mathbf{g}_{k, i}, \mathbf{g}_{k, j}).$$
 
@@ -110,7 +110,7 @@ Destructive interference is triggered when:
 $$\lambda_{\min}(\mathcal{G}_k) < -\tau_{\text{conflict}}, \quad \text{and} \quad \overline{\mathcal{C}}_k = \frac{1}{T(T-1)}\sum_{i \neq j}\mathcal{G}_{k, ij} < 0.$$
 
 ### 2. Feature-Space Partition of Unity (PoU) Gating
-Unlike discrete argmax top-$k$ routing in static MoEs (which causes router collapse and dead experts), AS-ViT uses smooth Gaussian Voronoi window gating:
+Unlike discrete argmax top-$k$ routing in static MoEs (which causes router collapse and dead experts), PRISM uses smooth Gaussian Voronoi window gating:
 
 $$\psi_k(\mathbf{z}) = \frac{\exp\left( - \frac{\|\mathbf{z} - \mathbf{c}_k\|_2^2}{2\sigma_k^2 \sqrt{D} + \epsilon} \right)}{\sum_{j=1}^N \exp\left( - \frac{\|\mathbf{z} - \mathbf{c}_j\|_2^2}{2\sigma_j^2 \sqrt{D} + \epsilon} \right)}, \quad \sum_{k=1}^N \psi_k(\mathbf{z}) = 1.0, \quad \psi_k(\mathbf{z}) \ge 0.$$
 
@@ -130,7 +130,7 @@ $$\lim_{\|\xi\| \to 0} \left| \mathcal{L}(\Theta^{(N+1)}) - \mathcal{L}(\Theta^{
 *Proof:* Follows directly from the Partition of Unity conservation axiom ($\sum_{j=1}^{N+1}\psi_j = 1.0$) and the linearity of the gating mixture $\psi_k^{(N+1)} \Phi_k + \psi_{N+1}^{(N+1)} \Phi_k = (\psi_k^{(N+1)} + \psi_{N+1}^{(N+1)}) \Phi_k$. $\blacksquare$
 
 ### Theorem 1 (Exponential Suppression of Negative Transfer)
-Let $\mathbf{g}_i = \nabla_\Theta \mathcal{L}_i$ and $\mathbf{g}_j = \nabla_\Theta \mathcal{L}_j$ be conflicting task gradients ($\langle \mathbf{g}_i, \mathbf{g}_j \rangle < 0$). Under AS-ViT with cleaved parameter subspaces $\Theta_1 \cap \Theta_2 = \emptyset$, the inner product of parameter updates satisfies:
+Let $\mathbf{g}_i = \nabla_\Theta \mathcal{L}_i$ and $\mathbf{g}_j = \nabla_\Theta \mathcal{L}_j$ be conflicting task gradients ($\langle \mathbf{g}_i, \mathbf{g}_j \rangle < 0$). Under PRISM with cleaved parameter subspaces $\Theta_1 \cap \Theta_2 = \emptyset$, the inner product of parameter updates satisfies:
 
 $$\langle \nabla_{\Theta_{\text{total}}} \mathcal{L}_i, \nabla_{\Theta_{\text{total}}} \mathcal{L}_j \rangle \ge - \mathcal{O}\left( \exp\left( -\frac{\|\mathbf{c}_1 - \mathbf{c}_2\|^2}{2\sigma^2} \right) \right).$$
 
@@ -151,7 +151,7 @@ Evaluation on 13-Class Semantic Segmentation (mIoU $\uparrow$), Monocular Metric
 | **CAGrad (NeurIPS 2021)** | $50.80\%$ | $0.1440$ | $0.5710$ | $19.80^\circ$ | $14.60^\circ$ | $-0.38\%$ |
 | **Static MoE-ViT ($E=4$)** | $52.10\%$ | $0.1380$ | $0.5480$ | $19.10^\circ$ | $13.90^\circ$ | $+1.82\%$ |
 | **Static MoE-ViT ($E=8$)** | $52.60\%$ | $0.1350$ | $0.5390$ | $18.80^\circ$ | $13.50^\circ$ | $+2.45\%$ |
-| **Proposed AS-ViT (Ours)** | $\mathbf{54.80\%}$ | $\mathbf{0.1240}$ | $\mathbf{0.5020}$ | $\mathbf{17.20^\circ}$ | $\mathbf{12.10^\circ}$ | $\mathbf{+5.84\%}$ *(SOTA)* |
+| **Proposed PRISM (Ours)** | $\mathbf{54.80\%}$ | $\mathbf{0.1240}$ | $\mathbf{0.5020}$ | $\mathbf{17.20^\circ}$ | $\mathbf{12.10^\circ}$ | $\mathbf{+5.84\%}$ *(SOTA)* |
 
 ### 2. Real-World Sensor NYUv2 Benchmark (Official 795 Train / 654 Test Split)
 Evaluated directly on Kinect sensor depth and point-cloud 3D surface normals:
@@ -164,7 +164,7 @@ Evaluated directly on Kinect sensor depth and point-cloud 3D surface normals:
 | **CAGrad (NeurIPS 2021)** | $28.24\%$ | $0.3902$ | $1.1070$ | $57.00^\circ$ | $-42.07\%$ |
 | **Static MoE-ViT ($E=4$)** | $30.29\%$ | $0.4748$ | $1.3186$ | $52.44^\circ$ | $-54.13\%$ *(Routing Collapse)* |
 | **Static MoE-ViT ($E=8$)** | $26.19\%$ | $0.4451$ | $1.2568$ | $60.58^\circ$ | $-56.45\%$ *(Dead Experts)* |
-| **Proposed AS-ViT (Ours)** | $22.42\%$ | $0.4264$ | $1.1905$ | $\mathbf{47.26^\circ}$ | **Best Normal Alignment** |
+| **Proposed PRISM (Ours)** | $22.42\%$ | $0.4264$ | $1.1905$ | $\mathbf{47.26^\circ}$ | **Best Normal Alignment** |
 
 ---
 
@@ -174,7 +174,7 @@ All figures are rendered at 300 DPI and embedded in the camera-ready manuscript:
 
 | Figure Asset | Visual Description |
 | :--- | :--- |
-| [`assets/fig1_as_vit_workflow_pou.png`](assets/fig1_as_vit_workflow_pou.png) | **AS-ViT Workflow & PoU Routing:** Transformer self-attention coupled to feature-space Voronoi partition gating and dynamic subspace cleavage. |
+| [`assets/fig1_as_vit_workflow_pou.png`](assets/fig1_as_vit_workflow_pou.png) | **PRISM Workflow & PoU Routing:** Transformer self-attention coupled to feature-space Voronoi partition gating and dynamic subspace cleavage. |
 | [`assets/fig2_convergence_curves.png`](assets/fig2_convergence_curves.png) | **Master Convergence Curves:** Multi-task total loss trajectories and sustained positive transfer evolution $\Delta M$. |
 | [`assets/fig3_gram_matrix_heatmaps.png`](assets/fig3_gram_matrix_heatmaps.png) | **Gram Alignment Conflict Spectrum:** Demonstrating shift from severe clashing ($\lambda_{\min} = -0.78$) to orthogonal parameter manifolds ($\lambda_{\min} = +0.08$). |
 | [`assets/fig4_latent_tsne_territories.png`](assets/fig4_latent_tsne_territories.png) | **Latent Feature Space Clustering (t-SNE):** 2D projection showing token specialization into Voronoi territories around learned centroids $\mathbf{c}_k$. |
@@ -187,7 +187,7 @@ All figures are rendered at 300 DPI and embedded in the camera-ready manuscript:
 ```
 AS_ViT_MultiTask_Vision/
 ├── models/
-│   ├── as_vit.py                  # Core ASViT and AdaptiveSubspaceBlock (PoU routing)
+│   ├── as_vit.py                  # Core PRISM and AdaptiveSubspaceBlock (PoU routing)
 │   ├── subspace_expert.py         # SubspaceExpertMLP (SwiGLU / GELU / SiLU)
 │   ├── vit_backbone.py            # PatchEmbed, Self-Attention, Standard TransformerBlock
 │   └── task_heads.py              # Dense heads for Segmentation, Depth, 3D Normals (S^2)
@@ -237,7 +237,7 @@ pip install -r requirements.txt
 python smoke_test.py
 ```
 
-### 3. Run Two-Stage AS-ViT Training
+### 3. Run Two-Stage PRISM Training
 ```bash
 # Stage 1: Autonomous AMR Topology Discovery
 python train_as_vit.py --config configs/as_vit_nyuv2_stage1.yaml --stage 1
@@ -291,8 +291,8 @@ All experimental results, vectorized Jacobian profiling kernels, and multi-task 
 If you find this work, codebase, or mathematical formulation useful in your research, please cite:
 
 ```bibtex
-@article{gangwar2026asvit_zenodo,
-  title={AS-ViT: Adaptive Subspace Vision Transformers with Autonomous Gradient-Clash Routing for Multi-Task Learning},
+@article{gangwar2026prism_zenodo,
+  title={PRISM: Partition-of-Unity Routing for Isolated Subspace Manifolds in Dense Multi-Task Vision},
   author={Gangwar, Kartikeya},
   journal={Zenodo Open-Access Preprint},
   year={2026},
@@ -300,8 +300,8 @@ If you find this work, codebase, or mathematical formulation useful in your rese
   url={https://doi.org/10.5281/zenodo.22974130}
 }
 
-@article{gangwar2026asvit_tpami,
-  title={AS-ViT: Adaptive Subspace Vision Transformers with Autonomous Gradient-Clash Routing for Multi-Task Learning},
+@article{gangwar2026prism_tpami,
+  title={PRISM: Partition-of-Unity Routing for Isolated Subspace Manifolds in Dense Multi-Task Vision},
   author={Gangwar, Kartikeya},
   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)},
   year={2026},

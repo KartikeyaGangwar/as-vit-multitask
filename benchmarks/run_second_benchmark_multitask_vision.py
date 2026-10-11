@@ -14,7 +14,7 @@ Evaluated across all 7 benchmark methods:
   4. CAGrad (NeurIPS 2021, conflict-averse gradient descent)
   5. Static MoE-ViT (E=4, Top-2 Routing)
   6. Static MoE-ViT (E=8, Top-2 Routing)
-  7. Proposed AS-ViT (Ours, Autonomous AMR Discovery + PoU Routing)
+  7. Proposed PRISM (Ours, Autonomous AMR Discovery + PoU Routing)
 
 Author: Kartikeya Gangwar (Department of Mathematics, University of Delhi)
 ================================================================================
@@ -36,7 +36,7 @@ def run_second_multitask_benchmark():
     # Established Multi-Task Recognition Benchmark Results
     # Single-task networks achieve high independent accuracy,
     # monolithic MT-ViT suffers from gradient clashing between spatial entities,
-    # and AS-ViT dynamically decouples the parameter subspaces.
+    # and PRISM dynamically decouples the parameter subspaces.
     single_baseline = {
         "task1_acc": 88.40,
         "task2_acc": 85.60,
@@ -99,7 +99,7 @@ def run_second_multitask_benchmark():
             "params_m": 12.21,
         },
         {
-            "method": "Proposed AS-ViT (Ours)",
+            "method": "Proposed PRISM (Ours)",
             "provenance": "Proposed Architecture",
             "task1_acc": 90.60,
             "task2_acc": 88.20,

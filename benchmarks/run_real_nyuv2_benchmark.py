@@ -25,7 +25,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 
-from models.as_vit import ASViT
+from models.as_vit import PRISM
 from benchmarks.models_baseline import SingleTaskViT, MonolithicMTViT, StaticMoEViT
 from engine.loss_functions import MultiTaskLossModule
 from engine.optimizers.pcgrad import PCGrad
@@ -270,13 +270,13 @@ class RealNYUv2BenchmarkRunner:
         moe8_vit = StaticMoEViT(num_experts=8, top_k=2, img_size=self.img_size, embed_dim=self.embed_dim, depth=self.depth, num_heads=self.num_heads)
         self._train_real_mt_model("Static MoE-ViT (E=8)", moe8_vit, st_baselines, "adamw")
 
-        # 7. Proposed AS-ViT (Real-World Two-Stage AMR)
+        # 7. Proposed PRISM (Real-World Two-Stage AMR)
         print("\n" + "=" * 80, flush=True)
-        print("  [STAGE 7/7] REAL-WORLD PROPOSED AS-ViT (TWO-STAGE DISCOVER-AND-DEPLOY)", flush=True)
+        print("  [STAGE 7/7] REAL-WORLD PROPOSED PRISM (TWO-STAGE DISCOVER-AND-DEPLOY)", flush=True)
         print("=" * 80, flush=True)
         cleanup_gpu()
-        from train_as_vit import TwoStageASViTTrainer
-        as_trainer = TwoStageASViTTrainer(
+        from train_as_vit import TwoStagePRISMTrainer
+        as_trainer = TwoStagePRISMTrainer(
             embed_dim=self.embed_dim,
             depth=self.depth,
             num_heads=self.num_heads,
@@ -293,7 +293,7 @@ class RealNYUv2BenchmarkRunner:
 
         evaluator = MultiTaskEvaluator(single_task_baselines=st_baselines)
         as_metrics["delta_m"] = evaluator.compute_multitask_gain(as_metrics)
-        self.results["Proposed AS-ViT (Ours)"] = as_metrics
+        self.results["Proposed PRISM (Ours)"] = as_metrics
 
         del as_trainer, as_model
         cleanup_gpu()

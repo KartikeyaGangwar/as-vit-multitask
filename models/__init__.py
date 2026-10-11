@@ -1,7 +1,13 @@
 """
-AS-ViT: Adaptive Subspace Vision Transformer Models Package.
+PRISM: Partition-of-Unity Routing for Isolated Subspace Manifolds Models Package.
 """
-from models.as_vit import ASViT, AdaptiveSubspaceBlock
+from models.prism import (
+    PRISM,
+    PRISMMultiTask,
+    PRISMBlock,
+    ASViT,
+    AdaptiveSubspaceBlock,
+)
 from models.subspace_expert import SubspaceExpertMLP
 from models.task_heads import (
     SegmentationHead,
@@ -12,6 +18,9 @@ from models.task_heads import (
 from models.vit_backbone import PatchEmbed, TransformerBlock
 
 __all__ = [
+    "PRISM",
+    "PRISMMultiTask",
+    "PRISMBlock",
     "ASViT",
     "AdaptiveSubspaceBlock",
     "SubspaceExpertMLP",

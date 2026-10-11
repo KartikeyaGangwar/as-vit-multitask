@@ -1,6 +1,6 @@
-# AS-ViT: Master Multi-Task Benchmark Suite Specification
+# PRISM: Master Multi-Task Benchmark Suite Specification
 
-This document details the multi-task vision benchmarks, evaluation metrics, baseline architectures, and execution protocols implemented in the **AS-ViT** repository.
+This document details the multi-task vision benchmarks, evaluation metrics, baseline architectures, and execution protocols implemented in the **PRISM** repository.
 
 ---
 
@@ -19,7 +19,7 @@ The benchmark suite systematically compares seven distinct architectural and opt
 │ 4. CAGrad (NeurIPS 2021)             │ Shared ($1\times P$)   │ Dual-cone conflict-averse descent        │
 │ 5. Static MoE-ViT (E=4)              │ Modular ($4\times P$)  │ Heuristic Top-2 routing (Router Collapse)│
 │ 6. Static MoE-ViT (E=8)              │ Modular ($8\times P$)  │ Heuristic Top-2 routing (Dead Experts)   │
-│ 7. Proposed AS-ViT (Ours)            │ Adaptive ($N^*\times P$)│ Autonomous Feature AMR + PoU Routing     │
+│ 7. Proposed PRISM (Ours)            │ Adaptive ($N^*\times P$)│ Autonomous Feature AMR + PoU Routing     │
 └──────────────────────────────────────┴────────────────────────┴──────────────────────────────────────────┘
 ```
 
@@ -68,7 +68,7 @@ In dense multi-task vision, a single test pass over the 654-image NYUv2 validati
 $$654 \text{ images} \times 224 \times 224 \text{ pixels} \approx 32,818,176 \text{ spatial tokens}.$$
 
 - **Naive List Accumulation:** Storing 33 million Python float objects in a heap list consumes $>2.5\text{ GB}$ of host RAM, resulting in severe `MemoryError` and page swapping.
-- **AS-ViT $\mathcal{O}(1)$ Streaming Accumulators:**
+- **PRISM $\mathcal{O}(1)$ Streaming Accumulators:**
   $$\text{sum} \leftarrow \text{sum} + \sum_{i \in \text{batch}} x_i, \quad \text{count} \leftarrow \text{count} + |\text{batch}|.$$
   This reduces memory overhead to **$1\text{ KB}$ (exact $O(1)$ memory)** with **$100\%$ bit-for-bit mathematical equivalence** to standard double-precision arithmetic.
 
